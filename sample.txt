@@ -1,8 +1,5 @@
 samir khanal
 samakhushi
 hobby: sleeping
-<<<<<<< HEAD
 age: 55
-=======
-age: 1000
->>>>>>> conflictage
+
