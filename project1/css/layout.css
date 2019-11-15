@@ -1,0 +1,44 @@
+.our_team {
+    height: 400px;
+    font-size: 32px;
+    color: #7d8b8b;
+    background-color: #ececec;
+    align-content: center;
+}
+
+.best_solution {
+    color: #f64032;
+    font-size: 32px;
+    background-color: #f3f3f3;
+}
+
+.lower_footer {
+    /* margin-left: 163px; */
+    /* margin-right: 163px; */
+    background-color: #6bb4ad;
+    height: 50px;
+    padding-top: 21px;
+}
+
+.lower_tollens_logo {
+    margin-left: 163px;
+    width: 20%;
+    float: left;
+}
+
+.lower_footer_rightpart {
+    margin-right: 163px;
+}
+
+.footer_logo {
+    /* height: 12px; */
+    padding-top: 11px;
+    display: inline;
+    padding-left: 24px;
+    color: #f9ffff;
+}
+
+.upper_footer {
+    background-color: #76c7c1;
+    /* height: 300px; */
+}
