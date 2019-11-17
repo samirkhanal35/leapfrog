@@ -1,0 +1,95 @@
+.body_width {
+    width: 100%;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+.total_width {
+    margin-left: 11%;
+    margin-right: 11%;
+}
+
+.head {
+    height: 80px;
+    /* background-color: #76c7c1; */
+    /* display: table; */
+    background-image: url("../images/header_background.png");
+    background-repeat: repeat-x;
+}
+
+.header_width {
+    margin-left: 11.000%;
+    margin-right: 11.000%;
+    padding-top: 1.4%;
+}
+
+.tollens_logo {
+    float: left;
+    width: 13.333%;
+}
+
+.header_rightpart {
+    width: 65%;
+    color: #f9ffff;
+    /* margin-right: 165px; */
+    display: table;
+    float: right;
+}
+
+.header_list {
+    color: #f9ffff;
+    padding-top: 0.666%;
+    /* display: inline; */
+    margin-left: 2.474%;
+    font-size: 12px;
+    align-content: center;
+    float: left;
+}
+
+@media only screen and (max-width:700px) {
+    .head {
+        padding-top: 6%;
+        padding-bottom: 12%;
+        background-image: none;
+        background-color: #76c7c1;
+    }
+    .header_list {
+        width: 100%;
+        padding-top: 1%;
+        background-color: #76c7c1;
+    }
+    .tollens_logo {
+        display: none;
+    }
+    .search_logo {
+        display: none;
+    }
+}
+
+@media only screen and (min-width:710px) and (max-width:800px) {
+    .head {
+        padding-top: 6%;
+        padding-bottom: 12%;
+        background-image: none;
+        background-color: #76c7c1;
+    }
+    .header_list {
+        width: 100%;
+        padding-top: 1%;
+        background-color: #76c7c1;
+        font-size: 14px;
+        margin-left: 3%;
+    }
+}
+
+.search_logo {
+    margin-top: 0.666%;
+    /* display: inline; */
+    margin-left: 2.474%;
+    width: 2.266%;
+    height: 2.133%;
+    align-content: center;
+    float: left;
+}
