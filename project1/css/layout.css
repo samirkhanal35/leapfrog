@@ -514,6 +514,169 @@ a:link {
 .upper_footer_contents {
     margin-left: 165px;
     margin-right: 165px;
+    padding-top: 45px;
+    display: table;
+}
+
+.tollens_logo {
+    width: 366px;
+    float: left;
+}
+
+.tollens_logo_texts {
+    margin-top: 28px;
+    color: #f1ffff;
+    font-size: 11px;
+}
+
+.tollens_logo_contacts {
+    margin-top: 30px;
+    color: #f1ffff;
+}
+
+.contacts {
+    display: table;
+}
+
+.phone {
+    font-size: 11px;
+    float: left;
+}
+
+.phone_number {
+    font-size: 16px;
+    padding-left: 17px;
+    float: left;
+}
+
+.email {
+    font-size: 11px;
+    float: left;
+}
+
+.email_address {
+    font-size: 20px;
+    padding-left: 17px;
+    float: left;
+}
+
+.company_list {
+    float: left;
+    margin-left: 33px;
+}
+
+.company_header {
+    color: #49847e;
+    font-size: 16px;
+}
+
+.company_details {
+    padding-top: 30px;
+    padding-left: 22px;
+}
+
+.company_details_block_1 {
+    display: table;
+}
+
+.company_details_block {
+    padding-top: 12px;
+    display: table;
+}
+
+.company_details_block_arrow {
+    float: left;
+}
+
+.company_details_block_text {
+    padding-left: 7px;
+    font-size: 12px;
+    color: #f1ffff;
+    float: left;
+    align-content: center;
+}
+
+.community_list {
+    float: left;
+    margin-left: 85px;
+}
+
+.community_header {
+    color: #49847e;
+    font-size: 16px;
+}
+
+.community_details {
+    padding-top: 30px;
+    padding-left: 22px;
+}
+
+.community_details_block_1 {
+    display: table;
+}
+
+.community_details_block {
+    padding-top: 12px;
+    display: table;
+}
+
+.community_details_block_arrow {
+    float: left;
+}
+
+.community_details_block_text {
+    padding-left: 7px;
+    font-size: 12px;
+    color: #f1ffff;
+    float: left;
+    align-content: center;
+}
+
+.from_the_blog {
+    float: left;
+    margin-left: 82px;
+    width: 344px;
+}
+
+.blog_header {
+    color: #f1ffff;
+    font-size: 16px;
+}
+
+.blog_contents {
+    padding-top: 23px;
+}
+
+.blog_content_1 {
+    /* height: 70px; */
+    display: table;
+}
+
+.blog_content_2 {
+    /* height: 70px; */
+    display: table;
+    padding-top: 20px;
+}
+
+.blog_image {
+    float: left;
+}
+
+.blog_image_content {
+    width: 244px;
+    margin-left: 18px;
+    font-size: 12px;
+    float: right;
+    display: table;
+}
+
+.blog_image_uppercontent {
+    color: #f1ffff;
+}
+
+.blog_date {
+    padding-top: 7px;
+    color: #5e9f9b;
 }
 
 .lower_footer {
