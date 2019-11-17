@@ -147,6 +147,7 @@ a:link {
     margin-right: 165px;
     padding-top: 75px;
     display: table;
+    padding-bottom: 76px;
 }
 
 .left_col_below_aboutus_content {
@@ -266,16 +267,128 @@ a:link {
 .buttom_text {
     color: #7b7b7b;
     float: left;
-    font-size: 16px;
+    font-size: 14px;
     padding-left: 13px;
     padding-top: 9px;
 }
 
 .our_team {
+    /* padding-top: 76px; */
     height: 526px;
     background-color: #f3f3f3;
     background-image: url("../images/background_image.png");
     background-repeat: repeat-x;
+}
+
+.our_team_all_contents {
+    margin-left: 165px;
+    margin-right: 165px;
+}
+
+.our_team_header {
+    padding-top: 70px;
+    font-size: 28px;
+    color: #7e8a8a;
+    align-content: center;
+}
+
+.our_team_whole_div {
+    display: table;
+    display: inline;
+}
+
+.our_team_block_1 {
+    position: relative;
+    width: 270px;
+    height: 338px;
+    margin-top: 79px;
+    /* margin-left: 29px; */
+    /* display: inline; */
+    float: left;
+}
+
+.our_team_block {
+    position: relative;
+    width: 270px;
+    height: 338px;
+    margin-top: 79px;
+    margin-left: 29px;
+    /* display: inline; */
+    float: left;
+}
+
+.our_team_upper_block {
+    height: 310px;
+    margin-bottom: 28px;
+    background-image: url("../images/no-image.png");
+    /* overflow: hidden; */
+}
+
+.our_team_lower_block {
+    position: absolute;
+    color: #f9ffff;
+    /* align-content: center; */
+    height: 50px;
+    width: 200px;
+    background-color: #99a3a4;
+    left: 35px;
+    bottom: 8px;
+}
+
+.hover_block {
+    /* display: none; */
+    opacity: 0;
+}
+
+.our_team_upper_hover_block {
+    position: absolute;
+    /* opacity: 1; */
+    height: 310px;
+    width: 270px;
+    margin-bottom: 28px;
+    background-color: #90d1cb;
+}
+
+.our_team_lower_hover_block {
+    position: absolute;
+    /* align-content: center; */
+    color: #f9ffff;
+    height: 50px;
+    width: 200px;
+    background-color: #e9645b;
+    left: 35px;
+    bottom: 8px;
+}
+
+.our_team_block:hover .hover_block {
+    /* display: none; */
+    opacity: 1;
+}
+
+.our_team_block_1:hover .hover_block {
+    /* display: none; */
+    opacity: 1;
+}
+
+.our_team_block:hover .our_team_upper_block {
+    display: none;
+}
+
+.our_team_block_1:hover .our_team_upper_block {
+    display: none;
+}
+
+.whole_social_div {
+    margin-left: 35px;
+    margin-right: 35px;
+    margin-top: 68px;
+}
+
+.social_div {
+    width: 42px;
+    height: 42px;
+    margin-left: 8px;
+    float: left;
 }
 
 .best_solution {
