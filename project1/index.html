@@ -7,12 +7,12 @@
     <link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
 
-<body>
+<body class="body_width">
 
     <!-- header  -->
     <div class="head">
         <!-- header subclass -->
-        <div class="header_uppermargin">
+        <div class="header_width">
             <!-- left part -->
             <div class="tollens_logo">
                 <img src="./images/tollens.png" alt="tollens">
@@ -21,22 +21,47 @@
 
             <!-- right part -->
             <div class="header_rightpart">
-                <ul>
-                    <li class="header_list"><a href="#">HOME</a> </li>
-                    <li class="header_list"><a href="#">ABOUT</a></li>
-                    <li class="header_list"><a href="#">SERVICES</a></li>
-                    <li class="header_list"><a href="#">PORTFOLIO</a></li>
-                    <li class="header_list"><a href="#">BLOG</a></li>
-                    <li class="header_list"><a href="#">FEATURES</a></li>
-                    <li class="header_list"><a href="#">CONTACTS</a></li>
-                    <li class="search_logo">
-                        <a href="#"><img src="./images/search_logo.png" alt="search_logo"></a>
-                    </li>
-                </ul>
+                <a href="#" class="header_list">
+                    <div>HOME</div>
+                </a>
+                <a href="#" class="header_list">
+                    <div>ABOUT</div>
+                </a>
+                <a href="#" class="header_list">
+                    <div>SERVICES</div>
+                </a>
+
+                <div class="portfolio_design">
+
+                    <button class="portfolio_button">
+                            <a href="#">
+                        <div class="portfolio_dropdown"><img src="./images/leftdropdown.png" alt="dropdown"></div>
+                        <div class="portfolio__content">PORTFOLIO</div>
+                    </a>
+                    </button>
+
+                </div>
+
+                <a href="#" class="header_list">
+                    <div>BLOG</div>
+                </a>
+                <a href="#" class="header_list">
+                    <div>FEATURES</div>
+                </a>
+                <a href="#" class="header_list">
+                    <div>CONTACTS</div>
+                </a>
+                <a href="#" class="header_list">
+                    <div>
+                        <img src="./images/search_logo.png" alt="search_logo">
+                    </div>
+                </a>
+
 
             </div>
 
         </div>
+        <div class="header_lower_scale_design"></div>
     </div>
 
 
@@ -46,17 +71,53 @@
     <div>
         <!-- about us div  -->
         <div class="aboutus">
+            <div class="aboutus_contents">
+                <div class="left_aboutus_content"><b>ABOUT US</b></div>
+                <div class="right_aboutus">
+                    <div class="right_aboutus_content">About us</div>
+                    <div class="right_aboutus_content">/</div>
+
+                    <a href="#" class="right_aboutus_content">
+                        <div>Home</div>
+                    </a>
+                </div>
+
+
+
+
+
+
+
+            </div>
+
 
 
         </div>
 
+
+
+
+        <!-- arrow head  -->
+        <div class="top_arrowhead">
+            <img src="./images/top_arrowhead.png" alt="top_arrowhead">
+        </div>
+
         <!-- below about us  -->
         <div class="below_about_us">
-            <!-- arrow head  -->
 
-            <div class="top_arrowhead">
-                <img src="./images/top_arrowhead.png" alt="top_arrowhead">
+            <!-- header  -->
+            <div class="header_below_aboutus">
+                Donec faucibus ultricies congue
             </div>
+
+            <!-- left col of content  -->
+            <div></div>
+
+            <!-- right col of content  -->
+
+
+
+
 
             <!-- content below about us  -->
             <div class="content_below_aboutus">
@@ -125,8 +186,8 @@
 
         </div>
         <!-- our team -->
-        <div class="our_team" align="center">
-            OUR TEAM
+        <div class="our_team">
+
         </div>
 
         <!-- best solution  -->
@@ -166,12 +227,14 @@
 
             <!-- lower right side  -->
             <div class="lower_footer_rightpart" align="right">
-                <ul>
-                    <li class="footer_logo"><img src="./images/facebook.png" alt="facebook"></li>
-                    <li class="footer_logo"><img src="./images/google.png" alt="google"></li>
-                    <li class="footer_logo"><img src="./images/twitter.png" alt="twitter"></li>
-                    <li class="footer_logo"><img src="./images/wifi.png" alt="wifi"></li>
-                </ul>
+                <a href="#">
+                    <ul>
+                        <li class="footer_logo"><img src="./images/facebook.png" alt="facebook"></li>
+                        <li class="footer_logo"><img src="./images/google.png" alt="google"></li>
+                        <li class="footer_logo"><img src="./images/twitter.png" alt="twitter"></li>
+                        <li class="footer_logo"><img src="./images/wifi.png" alt="wifi"></li>
+                    </ul>
+                </a>
 
             </div>
 

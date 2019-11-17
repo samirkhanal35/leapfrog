@@ -1,0 +1,31 @@
+a:link {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    display: block;
+}
+
+.home-aboutus a {
+    color: rgb(126, 145, 141);
+    text-decoration: none;
+}
+
+.home-aboutus a:first-child::after {
+    content: "/";
+    margin: 9px;
+}
+
+.my_team_button_text {
+    margin-top: 18px;
+    font-size: 16px;
+}
+
+.my_team_upper_block_content {
+    margin-top: 37px;
+    margin-left: 35px;
+    margin-right: 35px;
+    font-size: 14px;
+    color: #fbf9ff;
+}

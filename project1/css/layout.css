@@ -1,9 +1,152 @@
-.our_team {
-    height: 400px;
-    font-size: 32px;
-    color: #7d8b8b;
-    background-color: #ececec;
+a:link {
+    text-decoration: none;
+}
+
+.body_width {
+    width: 1500px;
+}
+
+.total_width {
+    margin-left: 165px;
+    margin-right: 165px;
+}
+
+.head {
+    height: 80px;
+    background-color: #76c7c1;
+    /* display: table; */
+}
+
+.header_width {
+    margin-left: 165px;
+    margin-right: 165px;
+    padding-top: 21px;
+}
+
+.tollens_logo {
+    float: left;
+    width: 20%;
+}
+
+.header_rightpart {
+    color: #f9ffff;
+    margin-right: 165px;
+    float: right;
+}
+
+.header_list {
+    color: #f9ffff;
+    padding-top: 10px;
+    /* display: inline; */
+    padding-left: 24px;
+    font-size: 12px;
     align-content: center;
+    float: left;
+}
+
+.search_logo {
+    padding-top: 10px;
+    display: inline;
+    padding-left: 24px;
+    /* float: left; */
+}
+
+.portfolio_design {
+    color: #f9ffff;
+    align-content: center;
+    height: 33px;
+    width: 120px;
+    /* background-image: url("./images/dropdown.png"); */
+    /* background-repeat: repeat-x; */
+    /* display: inline; */
+    margin-left: 24px;
+    padding-top: 10px;
+    font-size: 12px;
+    align-content: center;
+    float: left;
+}
+
+.portfolio_dropdown {
+    padding-top: 5px;
+    float: left;
+}
+
+.portfolio__content {
+    color: #f9ffff;
+    /* padding-top: 10px; */
+    /* padding-bottom: 10px; */
+    padding-left: 6px;
+    float: left;
+    align-content: center;
+}
+
+.portfolio_button {
+    background-color: #67a3a1;
+}
+
+.header_lower_scale_design {
+    /* width: 100%; */
+    background-image: url("./images/header_footer.png");
+    background-repeat: repeat-x;
+}
+
+.aboutus {
+    height: 80px;
+    background-color: #ececec;
+}
+
+.aboutus_contents {
+    margin-left: 165px;
+    margin-right: 165px;
+}
+
+.left_aboutus_content {
+    margin-top: 33px;
+    color: #7b8a87;
+    font-size: 16px;
+    float: left;
+    align-content: center;
+}
+
+.right_aboutus_content {
+    padding-left: 9px;
+    margin-top: 33px;
+    color: #7b8a87;
+    float: right;
+    align-content: center;
+    font-size: 12px;
+}
+
+.right_aboutus {
+    margin-right: 165px;
+}
+
+.below_about_us {
+    /* margin-left: 165px; */
+    background-color: #f3f3f3;
+}
+
+.top_arrowhead {
+    background-color: #f3f3f3;
+    padding-left: 165px;
+    /* margin-top: 0px; */
+    /* padding-bottom: 2px; */
+    /* height: 13px; */
+}
+
+.header_below_aboutus {
+    margin-left: 163px;
+    margin-right: 163px;
+    font-size: 24px;
+    color: #df4e3b;
+}
+
+.left_col_below_aboutus_content {
+    margin-left: 165px;
+}
+
+.right_col_below_aboutus_content {
+    margin-right: 165px;
 }
 
 .best_solution {
