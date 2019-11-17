@@ -3,6 +3,10 @@ a:link {
     color: inherit;
 }
 
+.middle_link {
+    color: #e64c66;
+}
+
 img {
     display: block;
 }
