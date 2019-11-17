@@ -13,8 +13,10 @@ a:link {
 
 .head {
     height: 80px;
-    background-color: #76c7c1;
+    /* background-color: #76c7c1; */
     /* display: table; */
+    background-image: url("../images/header_background.png");
+    background-repeat: repeat-x;
 }
 
 .header_width {
@@ -82,12 +84,6 @@ a:link {
 
 .portfolio_button {
     background-color: #67a3a1;
-}
-
-.header_lower_scale_design {
-    /* width: 100%; */
-    background-image: url("./images/header_footer.png");
-    background-repeat: repeat-x;
 }
 
 .aboutus {
@@ -262,6 +258,7 @@ a:link {
 }
 
 .buttom_image {
+    padding-left: 18px;
     width: 28px;
     float: left;
 }
@@ -270,13 +267,14 @@ a:link {
     color: #7b7b7b;
     float: left;
     font-size: 16px;
-    padding-right: 13px;
+    padding-left: 13px;
     padding-top: 9px;
 }
 
 .our_team {
+    height: 526px;
     background-color: #f3f3f3;
-    background-image: url("./images/background_image.png");
+    background-image: url("../images/background_image.png");
     background-repeat: repeat-x;
 }
 
@@ -305,6 +303,106 @@ a:link {
     align-content: center;
 }
 
+.our_happy_clients {
+    margin-left: 165px;
+    margin-right: 165px;
+}
+
+.our_happy_clients_upper_part {
+    display: table;
+}
+
+.happy_clients_right_text {
+    padding-top: 95px;
+    width: 150px;
+    font-size: 12px;
+    color: #818b8c;
+    float: left;
+}
+
+.circle_line {
+    padding-top: 95px;
+    padding-left: 16px;
+    float: left;
+}
+
+.circle {
+    width: 9px;
+    /* padding-top: 6px; */
+    float: left;
+}
+
+.line {
+    /* align-content: center; */
+    margin-top: 5px;
+    height: 1px;
+    width: 878px;
+    /* float: left; */
+    /* width: 880px; */
+    background-image: url("../images/happy-client-line.png");
+    background-repeat: repeat-x;
+}
+
+.right_slider {
+    margin-top: 90px;
+    width: 40px;
+    height: 40px;
+    margin-left: 16px;
+    align-content: center;
+    background-color: #99a3a4;
+    float: right;
+}
+
+.right_slider:hover {
+    background-color: #e2534b;
+}
+
+.left_slider {
+    margin-top: 90px;
+    width: 40px;
+    height: 40px;
+    margin-left: 16px;
+    align-content: center;
+    background-color: #99a3a4;
+    float: right;
+}
+
+.left_slider:hover {
+    background-color: #e2534b;
+}
+
+.our_happy_clients_lower_part {
+    padding-top: 40px;
+    padding-bottom: 67px;
+    display: table;
+}
+
+.jquery_block_1 {
+    float: left;
+    /* margin-left: 28px; */
+}
+
+.jquery_block {
+    float: left;
+    margin-left: 28px;
+}
+
+.jquery_image {
+    width: 170px;
+}
+
+.upper_footer {
+    /* margin-top: 67px; */
+    height: 301px;
+    background-image: url("../images/upper_footer.png");
+    background-repeat: repeat-x;
+}
+
+.upper_footer_contents {
+    margin-left: 165px;
+    margin-right: 165px;
+}
+
 .lower_footer {
     /* margin-left: 163px; */
     /* margin-right: 163px; */
@@ -313,25 +411,27 @@ a:link {
     padding-top: 21px;
 }
 
+.lower_footer_contents {
+    margin-left: 165px;
+    margin-right: 165px;
+}
+
 .lower_tollens_logo {
-    margin-left: 163px;
+    /* margin-left: 163px; */
     width: 20%;
     float: left;
 }
 
 .lower_footer_rightpart {
-    margin-right: 163px;
+    /* margin-right: 163px; */
+    float: right;
 }
 
 .footer_logo {
     /* height: 12px; */
     padding-top: 11px;
-    display: inline;
+    /* display: inline; */
     padding-left: 24px;
+    float: left;
     color: #f9ffff;
-}
-
-.upper_footer {
-    background-color: #76c7c1;
-    /* height: 300px; */
 }
