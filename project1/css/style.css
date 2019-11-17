@@ -3,22 +3,8 @@ a:link {
     color: inherit;
 }
 
-.middle_link {
-    color: #e64c66;
-}
-
 img {
     display: block;
-}
-
-.home-aboutus a {
-    color: rgb(126, 145, 141);
-    text-decoration: none;
-}
-
-.home-aboutus a:first-child::after {
-    content: "/";
-    margin: 9px;
 }
 
 .my_team_button_text {
