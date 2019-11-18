@@ -49,42 +49,6 @@ a:link {
     float: left;
 }
 
-@media only screen and (max-width:700px) {
-    .head {
-        padding-top: 6%;
-        padding-bottom: 12%;
-        background-image: none;
-        background-color: #76c7c1;
-    }
-    .header_list {
-        width: 100%;
-        padding-top: 1%;
-        background-color: #76c7c1;
-    }
-    .tollens_logo {
-        display: none;
-    }
-    .search_logo {
-        display: none;
-    }
-}
-
-@media only screen and (min-width:710px) and (max-width:800px) {
-    .head {
-        padding-top: 6%;
-        padding-bottom: 12%;
-        background-image: none;
-        background-color: #76c7c1;
-    }
-    .header_list {
-        width: 100%;
-        padding-top: 1%;
-        background-color: #76c7c1;
-        font-size: 14px;
-        margin-left: 3%;
-    }
-}
-
 .search_logo {
     margin-top: 0.666%;
     /* display: inline; */
@@ -95,9 +59,111 @@ a:link {
     float: left;
 }
 
-.project_slideshow {
+.body_section {
+    background-color: #f3f3f3;
+}
+
+.aboutus {
+    height: 80px;
+    background-color: #ececec;
+}
+
+.aboutus_contents {
+    margin-left: 11.000%;
+    margin-right: 11.000%;
+    /* margin-left: 165px; */
+    /* margin-right: 165px; */
+}
+
+.left_aboutus_content {
+    margin-top: 33px;
+    color: #7b8a87;
+    font-size: 16px;
+    float: left;
+    align-content: center;
+}
+
+.right_aboutus_content {
+    padding-left: 9px;
+    margin-top: 33px;
+    color: #7b8a87;
+    float: right;
+    align-content: center;
+    font-size: 12px;
+}
+
+.below_about_us {
+    /* margin-left: 165px; */
+    background-color: #f3f3f3;
+}
+
+.top_arrowhead {
+    background-color: #f3f3f3;
+    padding-left: 11.000%;
+    width: 1.866%;
+    /* margin-top: 0px; */
+    /* padding-bottom: 2px; */
+    /* height: 13px; */
+}
+
+.body-image-scroller-container {
+    position: relative;
+    width: 78%;
+    margin: 0 auto;
+    padding-top: 5%;
+}
+
+.image-scroller-left-div {
+    background-image: url(../images/left-arrow.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    height: 10.28%;
+    width: 5.128%;
+    top: 45%;
+    left: 0;
+}
+
+.image-scroller-right-div {
+    background-image: url(../images/slider-right.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
     height: 100%;
+    width: 5.128%;
+    top: 45%;
+    right: 0;
+}
+
+.caption-text {
+    position: absolute;
+    bottom: 20%;
+    left: 0;
     width: 100%;
+    color: #b5babd;
+    text-transform: uppercase;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.slider-bottom {
+    width: 78%;
+    margin: 0 auto;
+    margin-top: 1%;
+    margin-bottom: 5%;
+}
+
+.slider-bottom-wrapper {
+    background-color: royalblues;
+    text-align: center;
+}
+
+.slider-bottom-wrapper li {
+    display: inline-block;
+    list-style-type: none;
+    width: 5.1280%;
+    height: 5px;
+    background-image: url(../images/slider-bottom-in.jpg);
 }
 
 
@@ -192,7 +258,7 @@ a:link {
 .company_list {
     float: left;
     margin-left: 2.90%;
-    width: 7.666;
+    width: 8%;
 }
 
 .company_header {
@@ -202,7 +268,8 @@ a:link {
 
 .company_details {
     padding-top: 26.086%;
-    padding-left: 19.121%;
+    padding-left: 12.121%;
+    width: 100%;
 }
 
 .company_details_block_1 {
@@ -217,11 +284,13 @@ a:link {
 }
 
 .company_details_block_arrow {
+    width: 8.602%;
     float: left;
 }
 
 .company_details_block_text {
-    padding-left: 6.086%;
+    /* padding-left: 0.466%; */
+    width: 91.398%;
     font-size: 12px;
     color: #f1ffff;
     float: left;
@@ -245,20 +314,25 @@ a:link {
 }
 
 .community_details_block_1 {
+    padding-top: 18.434%;
+    width: 100%;
     display: table;
 }
 
 .community_details_block {
     padding-top: 0.8%;
+    width: 100%;
     display: table;
 }
 
 .community_details_block_arrow {
+    width: 8.602%;
     float: left;
 }
 
 .community_details_block_text {
-    padding-left: 0.466%;
+    /* padding-left: 0.466%; */
+    width: 91.398%;
     font-size: 12px;
     color: #f1ffff;
     float: left;
@@ -267,8 +341,8 @@ a:link {
 
 .from_the_blog {
     float: left;
-    margin-left: 5.466%;
-    width: 22.933%;
+    margin-left: 8.466%;
+    width: 30.933%;
 }
 
 .blog_header {
@@ -277,27 +351,31 @@ a:link {
 }
 
 .blog_contents {
+    width: 100%;
     padding-top: 1.533%;
 }
 
 .blog_content_1 {
     /* height: 70px; */
     display: table;
+    width: 100%;
 }
 
 .blog_content_2 {
     /* height: 70px; */
     display: table;
     padding-top: 1.333%;
+    width: 100%;
 }
 
 .blog_image {
+    width: 20%;
     float: left;
 }
 
 .blog_image_content {
-    width: 16.26%;
-    margin-left: 1.2%;
+    width: 80%;
+    padding-left: 8.2%;
     font-size: 12px;
     float: right;
     display: table;
@@ -327,20 +405,42 @@ a:link {
 
 .lower_tollens_logo {
     /* margin-left: 163px; */
-    width: 20%;
+    width: 6.581%;
     float: left;
 }
 
 .lower_footer_rightpart {
     /* margin-right: 163px; */
-    float: right;
+    width: 93.419%;
+    float: left;
 }
 
 .footer_logo {
+    width: auto;
     /* height: 12px; */
     padding-top: 0.733%;
     /* display: inline; */
     padding-left: 1.6%;
-    float: left;
+    float: right;
     color: #f9ffff;
+}
+
+@media only screen and (max-width:780px) {
+    .head {
+        padding-top: 6%;
+        padding-bottom: 12%;
+        background-image: none;
+        background-color: #76c7c1;
+    }
+    .header_list {
+        width: 100%;
+        padding-top: 1%;
+        background-color: #76c7c1;
+    }
+    .tollens_header_logo {
+        display: none;
+    }
+    .search_logo {
+        display: none;
+    }
 }
