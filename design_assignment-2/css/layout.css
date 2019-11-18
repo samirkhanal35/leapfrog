@@ -26,6 +26,7 @@ a:link {
 }
 
 .tollens_header_logo {
+    /* height: auto; */
     float: left;
     width: 13.333%;
 }
