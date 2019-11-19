@@ -8,6 +8,24 @@ a:hover {
 
 img {
     width: 100%;
-    height: 100%;
+    height: auto;
     display: block;
+}
+
+.subscribtion_form_inline ul {
+    margin-left: 0%;
+    list-style-type: none;
+    display: table;
+}
+
+.subscribtion_form_inline ul li {
+    background-color: #ffffff;
+    line-height: 48px;
+    font-size: 48px;
+}
+
+.burger_hover_menue ul li {
+    display: inline-block;
+    padding-right: 2.8758%;
+    /* 44px */
 }
