@@ -7,8 +7,8 @@ a:link {
 }
 
 .total_width {
-    margin-left: 11%;
-    margin-right: 11%;
+    width: 78%;
+    margin: 0 auto;
 }
 
 .head {
@@ -20,8 +20,8 @@ a:link {
 }
 
 .header_width {
-    margin-left: 11.000%;
-    margin-right: 11.000%;
+    width: 78%;
+    margin: 0 auto;
     padding-top: 1.4%;
 }
 
@@ -69,8 +69,8 @@ a:link {
 }
 
 .aboutus_contents {
-    margin-left: 11.000%;
-    margin-right: 11.000%;
+    width: 78%;
+    margin: 0 auto;
     /* margin-left: 165px; */
     /* margin-right: 165px; */
 }
@@ -106,25 +106,25 @@ a:link {
     /* height: 13px; */
 }
 
-.body-image-scroller-container {
+.project_slideshow {
     position: relative;
     width: 78%;
     margin: 0 auto;
     padding-top: 5%;
 }
 
-.image-scroller-left-div {
+.left_arrow {
     background-image: url(../images/left-arrow.jpg);
     background-repeat: no-repeat;
     background-size: contain;
     position: absolute;
-    height: 10.28%;
+    height: 100%;
     width: 5.128%;
     top: 45%;
     left: 0;
 }
 
-.image-scroller-right-div {
+.right_arrow {
     background-image: url(../images/slider-right.jpg);
     background-repeat: no-repeat;
     background-size: contain;
