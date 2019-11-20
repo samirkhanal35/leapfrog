@@ -1,0 +1,62 @@
+a:link {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.subscribtion_form_inline ul {
+    margin-left: 0%;
+    list-style-type: none;
+    display: table;
+}
+
+.subscribtion_form_inline ul li {
+    background-color: #ffffff;
+    line-height: 48px;
+    font-size: 48px;
+}
+
+.burger_hover_menue ul li {
+    display: inline-block;
+    padding-right: 2.8758%;
+    /* 44px */
+}
+
+.right_column_categories_content ul li {
+    width: 100%;
+    display: table;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    border-top: 1px solid #f7f7f7;
+    font-size: 11px;
+    color: #212121;
+}
+
+.right_column_latest_post_content ul li {
+    width: 100%;
+    display: table;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-top: 1px solid #f7f7f7;
+}
+
+.read_more a {
+    color: #464646;
+}
+
+.quote a {
+    color: #ffffff;
+}
+
+.lower_footer_text a {
+    color: #6d6f71;
+}
