@@ -1,6 +1,7 @@
 .main_container {
     /* width: 102.375em; */
     width: 100%;
+    background-color: #f9f9fb;
 }
 
 .header_sub_container {
@@ -214,19 +215,24 @@
     padding-top: 28px;
     width: 100%;
     margin-left: 0px;
+    margin-right: 0px;
     display: table;
+    background-color: #f7f7f7;
+    padding-bottom: 28px;
 }
 
 .lower_header_lower_section_leftpart {
     float: left;
     font-size: 14px;
     color: #1f1f1f;
-    width: 16%;
+    width: 15%;
+    padding-left: 1%;
 }
 
 .lower_header_lower_section_rightpart {
     float: right;
-    width: 84%;
+    width: 83%;
+    padding-right: 1%;
 }
 
 .subscribtion_form {
@@ -258,10 +264,11 @@
     width: 21%;
     color: #ffffff;
     /* padding-right: 2.5%; */
-    /* background-color: #212121; */
+    background-color: #212121;
     float: left;
     /* display: block; */
     line-height: 48px;
+    border: 0px;
 }
 
 .body_sub_container {
@@ -274,6 +281,9 @@
     width: 74.5098%;
     padding: 0%;
 }
+
+
+/* body right column  */
 
 .body_right_column {
     margin-right: 0%;
@@ -304,6 +314,8 @@
     float: left;
     width: 17%;
     line-height: 50px;
+    border: 0px;
+    background-color: #212121;
 }
 
 .search_button_image {
@@ -312,4 +324,146 @@
     padding-right: auto;
     padding-top: 16px;
     padding-bottom: 16px;
+}
+
+.upper_magazine_photo {
+    width: 100%;
+    padding-top: 41px;
+}
+
+.right_column_categories {
+    width: 100%;
+}
+
+.right_column_categories_header {
+    align-content: center;
+    font-size: 14px;
+    margin: 0 auto;
+    width: 47.8405%;
+    padding-top: 40px;
+    padding-bottom: 18px;
+    color: #212121;
+}
+
+.right_column_categories_content {
+    width: 100%;
+}
+
+.right_column_categories_content_left_side {
+    float: left;
+}
+
+.right_column_categories_content_right_side {
+    float: right;
+}
+
+.bottom_magazine_photo {
+    border-top: 1px solid #f7f7f7;
+    padding-top: 40px;
+    width: 100%;
+}
+
+.right_column_latest_post {
+    width: 100%;
+}
+
+.right_column_latest_post_header {
+    align-content: center;
+    font-size: 14px;
+    margin: 0 auto;
+    width: 47.8405%;
+    padding-top: 40px;
+    padding-bottom: 18px;
+    color: #212121;
+}
+
+.right_column_latest_post_content_left_side {
+    float: left;
+    width: 26.578%;
+}
+
+.right_column_latest_post_content_right_side {
+    float: right;
+    width: 69.7674%;
+    padding-left: 3.6544%;
+    display: table;
+}
+
+.right_column_latest_post_upper_right_content {
+    padding-bottom: 10px;
+    font-size: 12px;
+    color: #212121;
+}
+
+.right_column_latest_post_lower_right_content {
+    color: #a7a7a7;
+    font-size: 9px;
+}
+
+.right_column_latest_post_lower_right_content_date {
+    float: left;
+}
+
+.right_column_latest_post_lower_right_content_likes {
+    float: left;
+    padding-left: 12%;
+}
+
+.icons_block {
+    width: 100%;
+    display: table;
+    padding-top: 30px;
+    padding-bottom: 40px;
+    border-top: 1px solid #f7f7f7;
+}
+
+.right_column_twitter_icon {
+    width: 6.31%;
+    float: left;
+}
+
+.right_column_facebook_icon {
+    width: 3.65%;
+    padding-left: 18.9368%;
+    float: left;
+}
+
+.right_column_dribble_icon {
+    width: 5.98%;
+    padding-left: 18.2724%;
+    float: left;
+}
+
+.right_column_pininterest_icon {
+    width: 6.64%;
+    padding-left: 17.6079%;
+    float: left;
+}
+
+.right_column_linkedin_icon {
+    width: 5.98%;
+    float: right;
+}
+
+.slider_image {
+    position: relative;
+    width: 100%;
+    padding-bottom: 40px;
+}
+
+.slider_left_arrow {
+    position: absolute;
+    bottom: 60%;
+    left: 0%;
+}
+
+.slider_right_arrow {
+    position: absolute;
+    bottom: 60%;
+    right: 0%;
+}
+
+.facebook_plugin {
+    width: 100%;
+    padding-bottom: 44px;
 }

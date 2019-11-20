@@ -29,3 +29,21 @@ img {
     padding-right: 2.8758%;
     /* 44px */
 }
+
+.right_column_categories_content ul li {
+    width: 100%;
+    display: table;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    border-top: 1px solid #f7f7f7;
+    font-size: 11px;
+    color: #212121;
+}
+
+.right_column_latest_post_content ul li {
+    width: 100%;
+    display: table;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-top: 1px solid #f7f7f7;
+}
