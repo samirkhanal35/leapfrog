@@ -53,8 +53,6 @@
 .burger_image {
     padding-bottom: 22px;
     padding-top: 18px;
-    padding-left: auto;
-    padding-right: auto;
     width: 32.2580%;
 }
 
@@ -67,8 +65,6 @@
 .logo_design {
     padding-bottom: 22px;
     padding-top: 18px;
-    padding-left: auto;
-    padding-right: auto;
     width: 10.3542%;
     float: right;
     padding-right: 26.566%;
@@ -86,40 +82,30 @@
     width: 22.8070%;
     padding-bottom: 22px;
     padding-top: 18px;
-    padding-left: auto;
-    padding-right: auto;
 }
 
 .header_twitter_image {
     width: 26.3157%;
     padding-bottom: 22px;
     padding-top: 18px;
-    padding-left: auto;
-    padding-right: auto;
 }
 
 .header_tumbler_image {
     width: 15.7894%;
     padding-bottom: 22px;
     padding-top: 18px;
-    padding-left: auto;
-    padding-right: auto;
 }
 
 .header_facebook_image {
     width: 15.7894%;
     padding-bottom: 22px;
     padding-top: 18px;
-    padding-left: auto;
-    padding-right: auto;
 }
 
 .search_logo_image {
     width: 26.3157%;
     padding-bottom: 22px;
     padding-top: 18px;
-    padding-left: auto;
-    padding-right: auto;
 }
 
 .lower_header {
@@ -608,8 +594,6 @@
 
 .search_button_image {
     width: 30%;
-    padding-left: auto;
-    padding-right: auto;
     padding-top: 16px;
     padding-bottom: 16px;
 }
