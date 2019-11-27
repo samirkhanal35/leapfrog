@@ -9,7 +9,7 @@ image_container_width.clientWidth = (number_of_images * image_width) + "px";
 var image_container_total_width = (number_of_images * image_width);
 // console.log(image_container_total_width);
 
-image_container_width.style.transition = "all 0.4s ease-in-out";
+//image_container_width.style.transition = "all 0.4s ease-in-out";
 var indicators = document.getElementsByClassName("indicator");
 
 var image_indicators = document.getElementsByClassName("image_indicators")[0];
@@ -33,7 +33,7 @@ function add_indicator() {
             ind.addEventListener("click", function() {
 
                 // console.log("entered j", i);
-
+                clearInterval(timer);
                 show_image(i + 1);
 
             });
@@ -79,12 +79,12 @@ var shift = 0;
 
 function auto_slide() {
     clearInterval(timer);
-    timer = setInterval(slide, 75);
+    timer = setInterval(slide, 10);
 
 }
 
 function slide() {
-    if (this.shift % 640 == 0) {
+    if ((this.shift % image_width) == 0) {
         this.shift_value = this.shift;
         //console.log("upper %640 shift>>", this.shift_value);
         for (var i = 0; i < this.number_of_images; i++) {
@@ -106,10 +106,10 @@ function slide() {
 
 
     this.image_container_width.style.marginLeft = -(this.shift) + "px";
-    this.shift += 10;
+    this.shift += 5;
     // console.log(this.shift);
     //console.log("outer timer shift>>", this.shift);
-    if (this.shift == this.image_container_total_width - 620) {
+    if (this.shift == this.image_container_total_width - 635) {
         clearInterval(timer);
         //console.log("inside timer shift>>", this.shift);
         this.shift = 0;
@@ -127,7 +127,7 @@ auto_slide();
 var set_index = 0;
 
 function show_image(n) {
-    clearInterval(timer);
+
     for (var i = 0; i < this.number_of_images; i++) {
 
 
@@ -141,16 +141,17 @@ function show_image(n) {
     //console.log("show image index>>", this.img_index);
     this.indicators[this.set_index].style.backgroundColor = "oldlace";
 
-    this.shift = (this.set_index) * 640;
+    this.shift = (this.set_index) * (image_width);
 
     this.image_container_width.style.marginLeft = -(this.shift) + "px";
-    setTimeout(function() { auto_slide(); }, 1000);
+    setTimeout(function() { auto_slide(); }, 500);
 }
 
 
 
 function plus_image(m) {
     // this.timer.stop();
+    clearInterval(timer);
     if (m > 0) {
         show_image(this.img_index + 1);
     } else {

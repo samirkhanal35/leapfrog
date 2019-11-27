@@ -76,3 +76,79 @@
 .indicator:hover {
     background-color: oldlace;
 }
+
+@media only screen and (max-width:640px) {
+    .carousal_container {
+        margin-top: 13px;
+        height: 280px;
+        width: 90%;
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+    }
+    .image_container {
+        height: 280px;
+        /* width: 100%; */
+        /* width: 640px; */
+        position: relative;
+        /* transition: "0.4s ease"; */
+    }
+    .image_container img {
+        position: absolute;
+        margin: 0 auto;
+        width: auto;
+        height: auto;
+        /* transition: all 0.4s ease-in-out; */
+        /* display: none; */
+    }
+    .arrow {
+        height: 17px;
+        width: 17px;
+        bottom: 50%;
+        background-color: lightgray;
+    }
+    .indicator {
+        height: 7px;
+        width: 7px;
+        border-radius: 50%;
+        border: 1px solid oldlace;
+    }
+}
+
+@media only screen and (max-width:400px) {
+    .carousal_container {
+        margin-top: 10px;
+        height: 250px;
+        width: 95%;
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+    }
+    .image_container {
+        height: 250px;
+        /* width: 100%; */
+        /* width: 640px; */
+        position: relative;
+        /* transition: "0.4s ease"; */
+    }
+    .image_container img {
+        position: absolute;
+        margin: 0 auto;
+        width: auto;
+        height: auto;
+        /* transition: all 0.4s ease-in-out; */
+        /* display: none; */
+    }
+    .arrow {
+        height: 15px;
+        width: 15px;
+        bottom: 50%;
+        background-color: lightgray;
+    }
+    .indicator {
+        height: 5px;
+        width: 5px;
+        border-radius: 50%;
+        border: 1px solid oldlace;
+    }
+}
