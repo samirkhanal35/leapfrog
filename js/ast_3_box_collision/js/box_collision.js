@@ -106,7 +106,7 @@ function Box(parentElement, container_width, container_height, box_count, width,
 }
 
 var parentElement = document.getElementById('ball_collision_container');
-var box_width = 20;
-var box_height = 20;
-var number_of_boxes = 20;
+var box_width = 40;
+var box_height = 40;
+var number_of_boxes = 7;
 start_collision = new Box(parentElement, container_width, container_height, number_of_boxes, box_width, box_height).init();
