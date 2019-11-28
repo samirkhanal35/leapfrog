@@ -3,10 +3,14 @@ var images = document.getElementsByClassName("image_container")[0].getElementsBy
 var image_width = images[0].clientWidth;
 var number_of_images = images.length;
 
-for (var i = 0; i < this.number_of_images; i++) {
-    this.images[i].style.marginLeft = (i * this.image_width) + "px";
-    //console.log(images[i].style.marginLeft);
+function image_initialization() {
+    for (var i = 0; i < this.number_of_images; i++) {
+        this.images[i].style.marginLeft = (i * this.image_width) + "px";
+        //console.log(images[i].style.marginLeft);
+    }
 }
+
+image_initialization();
 
 
 //console.log(number_of_images);

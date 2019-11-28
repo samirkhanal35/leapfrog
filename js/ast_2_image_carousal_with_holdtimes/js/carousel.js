@@ -2,6 +2,19 @@ var images = document.getElementsByClassName("image_container")[0].getElementsBy
 //console.log(images[0]);
 var image_width = images[0].clientWidth;
 var number_of_images = images.length;
+
+
+function image_initialization() {
+    for (var i = 0; i < this.number_of_images; i++) {
+        this.images[i].style.marginLeft = (i * this.image_width) + "px";
+        //console.log(images[i].style.marginLeft);
+    }
+}
+
+image_initialization();
+
+var shift = 0;
+// var current_image = 0;
 //console.log(number_of_images);
 var image_container_width = document.getElementsByClassName("image_container")[0];
 image_container_width.clientWidth = (number_of_images * image_width) + "px";
@@ -15,9 +28,9 @@ var indicators = document.getElementsByClassName("indicator");
 var image_indicators = document.getElementsByClassName("image_indicators")[0];
 
 var next_arrow = document.getElementsByClassName("next_arrow")[0];
-console.log(next_arrow);
+// console.log(next_arrow);
 var previous_arrow = document.getElementsByClassName("previous_arrow")[0];
-console.log(previous_arrow);
+// console.log(previous_arrow);
 var img_index = 0;
 
 var timer = 0;
@@ -68,13 +81,7 @@ add_indicator();
 
 
 
-for (var i = 0; i < this.number_of_images; i++) {
-    this.images[i].style.marginLeft = (i * this.image_width) + "px";
-    //console.log(images[i].style.marginLeft);
-}
 
-var shift = 0;
-// var current_image = 0;
 
 
 function auto_slide() {
@@ -158,19 +165,3 @@ function plus_image(m) {
         show_image(this.img_index);
     }
 }
-
-// next_arrow.addEventListener("click", function() {
-
-//     // console.log("entered j", i);
-
-//     show_image(this.img_index + 1);
-
-// });
-
-// previous_arrow.addEventListener("click", function() {
-
-//     // console.log("entered j", i);
-
-//     show_image(this.img_index);
-
-// });
