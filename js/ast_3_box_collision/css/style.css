@@ -9,5 +9,6 @@
 
 .box {
     background: blue;
+    border: 1px solid darkgray;
     position: absolute;
 }
