@@ -79,7 +79,7 @@ var shift = 0;
 
 function auto_slide() {
     clearInterval(timer);
-    timer = setInterval(slide, 75);
+    timer = setInterval(slide, 55);
 
 }
 
