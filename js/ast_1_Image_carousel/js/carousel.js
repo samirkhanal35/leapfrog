@@ -2,12 +2,19 @@ var images = document.getElementsByClassName("image_container")[0].getElementsBy
 //console.log(images[0]);
 var image_width = images[0].clientWidth;
 var number_of_images = images.length;
+
+for (var i = 0; i < this.number_of_images; i++) {
+    this.images[i].style.marginLeft = (i * this.image_width) + "px";
+    //console.log(images[i].style.marginLeft);
+}
+
+
 //console.log(number_of_images);
 var image_container_width = document.getElementsByClassName("image_container")[0];
 image_container_width.clientWidth = (number_of_images * image_width) + "px";
 
 var image_container_total_width = (number_of_images * image_width);
-console.log(image_container_total_width);
+// console.log(image_container_total_width);
 
 image_container_width.style.transition = "all 0.4s ease-in-out";
 var indicators = document.getElementsByClassName("indicator");
@@ -17,6 +24,9 @@ var image_indicators = document.getElementsByClassName("image_indicators")[0];
 var img_index = 0;
 
 var timer = 0;
+
+
+var shift = 0;
 
 function add_indicator() {
     for (var i = 0; i < this.number_of_images; i++) {
@@ -28,7 +38,7 @@ function add_indicator() {
         (function(i) {
             ind.addEventListener("click", function() {
 
-                console.log("entered j", i);
+
 
                 show_image(i + 1);
 
@@ -64,17 +74,13 @@ add_indicator();
 
 
 
-for (var i = 0; i < this.number_of_images; i++) {
-    this.images[i].style.marginLeft = (i * this.image_width) + "px";
-    //console.log(images[i].style.marginLeft);
-}
 
-var shift = 0;
 // var current_image = 0;
 
 
 
 function auto_slide() {
+    clearInterval(timer);
     timer = setInterval(slide, 1500);
 
 }
@@ -113,7 +119,7 @@ function show_image(n) {
     }
 
     this.img_index = n - 1;
-    console.log(img_index);
+
     this.indicators[this.img_index].style.backgroundColor = "oldlace";
     this.shift = (this.img_index) * 640;
     this.image_container_width.style.marginLeft = -(this.shift) + "px";
