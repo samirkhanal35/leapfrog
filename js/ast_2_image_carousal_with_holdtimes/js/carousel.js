@@ -79,7 +79,7 @@ var shift = 0;
 
 function auto_slide() {
     clearInterval(timer);
-    timer = setInterval(slide, 10);
+    timer = setInterval(slide, 75);
 
 }
 
@@ -106,10 +106,10 @@ function slide() {
 
 
     this.image_container_width.style.marginLeft = -(this.shift) + "px";
-    this.shift += 5;
+    this.shift += 10;
     // console.log(this.shift);
     //console.log("outer timer shift>>", this.shift);
-    if (this.shift == this.image_container_total_width - 635) {
+    if (this.shift == this.image_container_total_width - 630) {
         clearInterval(timer);
         //console.log("inside timer shift>>", this.shift);
         this.shift = 0;
