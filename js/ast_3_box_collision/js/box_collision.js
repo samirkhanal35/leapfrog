@@ -18,6 +18,8 @@ function Box(parentElement, container_width, container_height, box_count, width,
     this.container_height = container_height;
     this.dx = [];
     this.dy = [];
+    this.ddx = 0;
+    this.ddy = 0;
     this.box = [];
     this.parentElement = parentElement;
     var that = this;
@@ -38,11 +40,17 @@ function Box(parentElement, container_width, container_height, box_count, width,
 
     this.move_ball = function() {
 
+        this.dx[0] = Math.floor(Math.random() * 2) + 1;
+        this.dy[0] = this.dx[0];
+        this.ddx = this.dx[0];
+        this.ddy = this.dy[0];
         for (var i = 0; i < this.box_count; i++) {
 
             this.box[i] = this.boxes[i];
-            this.dx[i] = Math.floor(Math.random() * 4) + 1;
-            this.dy[i] = this.dx[i];
+
+            this.dx[i] = this.ddx;
+            this.dy[i] = this.ddy;
+
 
         }
         this.unique_entry();
@@ -108,5 +116,5 @@ function Box(parentElement, container_width, container_height, box_count, width,
 var parentElement = document.getElementById('ball_collision_container');
 var box_width = 40;
 var box_height = 40;
-var number_of_boxes = 7;
+var number_of_boxes = 7; //max=24boxes with width=height=20
 start_collision = new Box(parentElement, container_width, container_height, number_of_boxes, box_width, box_height).init();
