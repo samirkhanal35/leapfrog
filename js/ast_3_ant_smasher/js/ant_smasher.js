@@ -19,17 +19,26 @@ function Box(parentElement, container_width, container_height, box_count, width,
     this.container_height = container_height;
     this.dx = [];
     this.dy = [];
+    this.ddx = 0;
+    this.ddy = 0;
     this.box = [];
+    this.previous_box = 0;
     this.parentElement = parentElement;
     var that = this;
     this.score = 0;
     this.init = function() {
         for (var i = 0; i < this.box_count; i++) {
-            box1 = document.createElement('div');
+            var box1 = document.createElement('div');
             box1.style.height = this.height + 'px';
             box1.style.width = this.width + 'px';
-            box1.style.backgroundImage = "url('./images/ant-walking.gif')";
+            // box1.style.backgroundImage = "url('./images/ant-walking.gif')";
             box1.classList.add('box');
+
+            var box1_img = document.createElement("img");
+            // box1_img.classList.add('img');
+            box1_img.src = "https://www.animatedimages.org/data/media/183/animated-ant-image-0071.gif";
+            box1.style.transform = "rotate(135deg)";
+            box1.appendChild(box1_img);
             this.parentElement.appendChild(box1);
             this.boxes.push(box1);
 
@@ -55,6 +64,8 @@ function Box(parentElement, container_width, container_height, box_count, width,
 
                     document.getElementById("score").innerHTML = "Total Score:" + that.score;
                     that.boxes[i].style.display = "none";
+                    that.boxes[that.previous_box].style.display = "block";
+                    that.previous_box = i;
                 });
             }(i, this));
 
@@ -67,12 +78,18 @@ function Box(parentElement, container_width, container_height, box_count, width,
 
 
     this.move_ball = function() {
-
+        this.dx[0] = Math.floor(Math.random() * 2) + 1;
+        this.dy[0] = this.dx[0];
+        this.ddx = this.dx[0];
+        this.ddy = this.dy[0];
         for (var i = 0; i < this.box_count; i++) {
 
             this.box[i] = this.boxes[i];
-            this.dx[i] = Math.floor(Math.random() * 2) + 1;
-            this.dy[i] = this.dx[i];
+            // this.dx[i] = Math.floor(Math.random() * 2) + 1;
+            // this.dy[i] = this.dx[i];
+            this.dx[i] = this.ddx;
+            this.dy[i] = this.ddy;
+
 
         }
         this.unique_entry();
@@ -113,6 +130,18 @@ function Box(parentElement, container_width, container_height, box_count, width,
             if (that.y[i] <= 5 || that.y[i] >= (container_height - (that.height + 5))) {
                 that.dy[i] = -that.dy[i];
             }
+            if (that.dx[i] > 0 && that.dy[i] > 0) {
+                that.boxes[i].style.transform = "rotate(137deg)";
+            }
+            if (that.dx[i] > 0 && that.dy[i] < 0) {
+                that.boxes[i].style.transform = "rotate(45deg)";
+            }
+            if (that.dx[i] < 0 && that.dy[i] < 0) {
+                that.boxes[i].style.transform = "rotate(-45deg)";
+            }
+            if (that.dx[i] < 0 && that.dy[i] > 0) {
+                that.boxes[i].style.transform = "rotate(-137deg)";
+            }
             for (var j = 0; j < that.box_count; j++) {
                 if (j != i) {
                     if (that.x[i] < that.x[j] + that.width &&
@@ -139,5 +168,5 @@ var parentElement = document.getElementById('ant_smasher_container');
 
 var box_width = 40;
 var box_height = 40;
-var number_of_boxes = 7;
+var number_of_boxes = 8;
 start_collision = new Box(parentElement, container_width, container_height, number_of_boxes, box_width, box_height).init();

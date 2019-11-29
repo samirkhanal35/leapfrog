@@ -25,11 +25,12 @@
     height: 500px;
     width: 800px;
     position: relative;
-    background-color: lightgreen;
+    background-color: lightgray;
 }
 
 .box {
-    background: lightgreen;
+    background: transparent;
+    border-radius: 50%;
     /* border: 1px solid lightgreen; */
     position: absolute;
 }
