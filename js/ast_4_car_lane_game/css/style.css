@@ -63,3 +63,7 @@
     margin-top: 0px;
     border-radius: 50%;
 }
+
+.main_car_box {
+    position: absolute;
+}
