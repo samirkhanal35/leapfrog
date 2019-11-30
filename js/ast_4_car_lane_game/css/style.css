@@ -1,0 +1,65 @@
+.main_container {
+    margin-left: 15%;
+    /* margin-top: 20px; */
+    border: 3px solid black;
+    height: 400px;
+    width: 312px;
+    position: relative;
+    background-color: lightgray;
+    overflow: hidden;
+}
+
+.score_bar {
+    margin-left: 15%;
+    /* margin-top: 50px; */
+    border: 3px solid black;
+    height: 30px;
+    width: 312px;
+    margin-top: 0px;
+    position: relative;
+    background-color: black;
+    display: table;
+    color: white;
+    font-size: 14px;
+}
+
+.score {
+    width: 25%;
+    float: left;
+}
+
+.score_right_part {
+    /* margin-left: 15%; */
+    float: left;
+}
+
+.time {
+    margin-left: 20%;
+    float: left;
+}
+
+.speed {
+    float: right;
+}
+
+.background_container {
+    /* height: 312px; */
+    width: 312px;
+    position: relative;
+    background-color: lightgreen;
+}
+
+.start_box {
+    text-align: center;
+    border-radius: 20%;
+    background-color: white;
+    position: absolute;
+    font-size: 17px;
+    color: red;
+}
+
+.start_box img {
+    /* height: 75%; */
+    margin-top: 0px;
+    border-radius: 50%;
+}
