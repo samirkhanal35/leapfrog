@@ -328,7 +328,7 @@ function car_lane_game(parentElement, container_height, container_width, backgro
         // start_box.style.paddingLeft = 4 + "px";
         ending_box.style.paddingBottom = 8 + "%";
         // console.log("left>>", start_box.style.paddingLeft)
-        ending_box.innerHTML = "<b>Restart The Game</b>"
+        ending_box.innerHTML = "<b>Restart The Game</b><br/>score:" + that.total_score; //check 
         ending_box.classList.add("ending_box");
         var ending_image = document.createElement('img');
         ending_image.src = "https://www.animatedimages.org/data/media/426/animated-button-image-0329.gif";
@@ -347,24 +347,27 @@ function car_lane_game(parentElement, container_height, container_width, backgro
 
     this.restart_game = function() {
         document.getElementsByClassName("ending_box")[0].remove();
-        that.car_speed = 5;
-        that.image_index = 0;
-        that.car_position = 1;
-        that.time_counter = 0;
-        that.cars = [];
-        that.other_car_position = []; //top margin
-        that.game = 0;
+        this.total_score = 0;
 
-        that.number_of_cars = 0;
-        that.main_car = 0;
-        that.main_car_height = 0;
-        that.main_car_width = 0;
-        that.main_car_left = 0;
-        that.main_car_top = 0;
 
-        that.other_cars_height = [];
-        that.other_cars_width = [];
-        that.other_cars_left = [];
+        this.car_speed = 8;
+        this.image_index = 0;
+        this.car_position = 1;
+        this.time_counter = 0;
+        this.cars = [];
+        this.other_car_position = []; //top margin
+        this.game = 0;
+
+        this.number_of_cars = 0;
+        this.main_car = 0;
+        this.main_car_height = 0;
+        this.main_car_width = 0;
+        this.main_car_left = 0;
+        this.main_car_top = 0;
+
+        this.other_cars_height = [];
+        this.other_cars_width = [];
+        this.other_cars_left = [];
         that.image_index = -(that.image_height - that.height);
         that.background_images[0].style.marginTop = that.image_index + "px";
         // window.removeEventListener("keydown", function(event) {});
