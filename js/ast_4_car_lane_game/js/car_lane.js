@@ -159,18 +159,18 @@ function car_lane_game(parentElement, container_height, container_width, backgro
 
 
 
-        that.time_counter = that.time_counter + 30;
+        that.time_counter = that.time_counter + 50;
         document.getElementById("score").innerHTML = "score:" + that.total_score;
         document.getElementById("time").innerHTML = (that.time_counter / 1000) + "sec";
         document.getElementById("speed").innerHTML = that.car_speed + "KPH";
         that.background_movement();
-        if (that.time_counter % 2000 == 0 || that.time_counter % 7000 == 0) {
+        if (that.time_counter % 3000 == 0 || that.time_counter % 11000 == 0) {
             that.first_col_cars();
         }
         if (that.time_counter % 5000 == 0 || that.time_counter % 13000 == 0) {
             that.second_col_cars();
         }
-        if (that.time_counter % 7000 == 0 || that.time_counter % 9000 == 0) {
+        if (that.time_counter % 7000 == 0 || that.time_counter % 17000 == 0) {
             that.third_col_cars();
         }
 
@@ -178,13 +178,14 @@ function car_lane_game(parentElement, container_height, container_width, backgro
         // console.log(number_of_cars);
 
         for (var i = 0; i < that.number_of_cars + 1; i++) {
-            if (that.main_car_left < that.other_cars_left[i] + that.other_cars_width[i] &&
-                that.main_car_left + that.main_car_width > that.other_cars_left[i] &&
-                that.main_car_top < that.other_car_position[i] + that.other_cars_height[i] &&
-                that.main_car_top + that.main_car_height > that.other_car_position[i]) {
-                clearInterval(that.game);
-                that.ending();
-            }
+            //*******collision detection********* */
+            // if (that.main_car_left < that.other_cars_left[i] + that.other_cars_width[i] &&
+            //     that.main_car_left + that.main_car_width > that.other_cars_left[i] &&
+            //     that.main_car_top < that.other_car_position[i] + that.other_cars_height[i] &&
+            //     that.main_car_top + that.main_car_height > that.other_car_position[i]) {
+            //     clearInterval(that.game);
+            //     that.ending();
+            // }
             if (that.other_car_position[i] > that.height) {
                 that.other_car_position.splice(i, 1);
                 console.log(that.cars[i]);
