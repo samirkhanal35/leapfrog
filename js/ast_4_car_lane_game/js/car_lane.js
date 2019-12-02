@@ -87,9 +87,9 @@ function car_lane_game(parentElement, container_height, container_width, backgro
     this.start_playing_game = function() {
         var main_car_parent = document.getElementsByClassName("main_container")[0];
         var main_car_box = document.createElement('div');
-        this.main_car_height = (this.height / 5);
+        this.main_car_height = (this.height / 6);
         main_car_box.style.height = this.main_car_height + "px";
-        this.main_car_width = (this.width / 5);
+        this.main_car_width = (this.width / 6);
         main_car_box.style.width = this.main_car_width + "px";
         this.main_car_top = (this.height - (this.height / 4.5));
         main_car_box.style.top = this.main_car_top + "px";
@@ -113,16 +113,19 @@ function car_lane_game(parentElement, container_height, container_width, backgro
             if (event.keyCode == '39') {
                 // right arrow key
                 if (that.car_position == 1) {
-                    main_car_box.style.left = (that.width / 1.3846) + "px";
+                    that.main_car_left = (that.width / 1.3846);
+                    main_car_box.style.left = that.main_car_left + "px";
                     that.car_position = 2;
                 }
                 if (that.car_position == 0) {
-                    main_car_box.style.left = (that.width / 2.6) + "px";
+                    that.main_car_left = (that.width / 2.6);
+                    main_car_box.style.left = that.main_car_left + "px";
                     that.car_position = 1;
                 }
 
                 if (that.car_position == 2) {
-                    main_car_box.style.left = (that.width / 1.3846) + "px";
+                    that.main_car_left = (that.width / 1.3846);
+                    main_car_box.style.left = that.main_car_left + "px";
                     that.car_position = 2;
                 }
                 // console.log(that.car_position);
@@ -133,15 +136,18 @@ function car_lane_game(parentElement, container_height, container_width, backgro
                 // 
                 //left arrow key
                 if (that.car_position == 1) {
-                    main_car_box.style.left = (that.width / 13.50357) + "px";
+                    that.main_car_left = (that.width / 13.50357);
+                    main_car_box.style.left = that.main_car_left + "px";
                     that.car_position = 0;
                 }
                 if (that.car_position == 2) {
-                    main_car_box.style.left = (that.width / 2.6) + "px";
+                    that.main_car_left = (that.width / 2.6);
+                    main_car_box.style.left = that.main_car_left + "px";
                     that.car_position = 1;
                 }
                 if (that.car_position == 0) {
-                    main_car_box.style.left = (that.width / 13.50357) + "px";
+                    that.main_car_left = (that.width / 13.50357);
+                    main_car_box.style.left = that.main_car_left + "px";
                     that.car_position = 0;
                 }
 
@@ -179,13 +185,16 @@ function car_lane_game(parentElement, container_height, container_width, backgro
 
         for (var i = 0; i < that.number_of_cars + 1; i++) {
             //*******collision detection********* */
-            // if (that.main_car_left < that.other_cars_left[i] + that.other_cars_width[i] &&
-            //     that.main_car_left + that.main_car_width > that.other_cars_left[i] &&
-            //     that.main_car_top < that.other_car_position[i] + that.other_cars_height[i] &&
-            //     that.main_car_top + that.main_car_height > that.other_car_position[i]) {
-            //     clearInterval(that.game);
-            //     that.ending();
-            // }
+            if (that.main_car_left < that.other_cars_left[i] + that.other_cars_width[i] &&
+                that.main_car_left + that.main_car_width > that.other_cars_left[i] &&
+                that.main_car_top < that.other_car_position[i] + that.other_cars_height[i] &&
+                that.main_car_top + that.main_car_height > that.other_car_position[i]) {
+                for (var i = 0; i < that.number_of_cars; i++) {
+                    document.getElementsByClassName("other_car_box")[0].remove();
+                }
+                clearInterval(that.game);
+                that.ending();
+            }
             if (that.other_car_position[i] > that.height) {
                 that.other_car_position.splice(i, 1);
                 console.log(that.cars[i]);
@@ -193,6 +202,7 @@ function car_lane_game(parentElement, container_height, container_width, backgro
                 that.cars.splice(i, 1);
                 that.other_cars_height.splice(i, 1);
                 that.other_cars_width.splice(i, 1);
+                that.other_cars_left.splice(i, 1);
                 that.total_score++;
 
                 that.number_of_cars--;
@@ -308,7 +318,7 @@ function car_lane_game(parentElement, container_height, container_width, backgro
     this.ending = function() {
 
 
-        document.getElementsByClassName("other_car_box")[0].innerHTML = "";
+        // document.getElementsByClassName("other_car_box")[0].innerHTML = "";
 
 
         document.getElementsByClassName("main_car_box")[0].remove();
