@@ -166,7 +166,7 @@ function car_lane_game(parentElement, container_height, container_width) {
 
         that.time_counter = that.time_counter + 50;
         document.getElementById("score").innerHTML = "score:" + that.total_score;
-        document.getElementById("time").innerHTML = (that.time_counter / 1000) + "sec";
+        document.getElementById("time").innerHTML = Math.floor(that.time_counter / 1000) + "sec";
         document.getElementById("speed").innerHTML = that.car_speed + "KPH";
         that.background_movement();
         if (that.time_counter % 3000 == 0 || that.time_counter % 11000 == 0) {
