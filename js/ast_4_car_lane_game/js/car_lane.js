@@ -3,20 +3,19 @@ var container_height = container.clientHeight;
 // console.log("height>>", container_height);
 var container_width = container.clientWidth;
 // console.log("width>>", container_width);
-var background_images = document.getElementsByClassName("background_container")[0].getElementsByTagName("img");
+// var background_images =
 
-
-function car_lane_game(parentElement, container_height, container_width, background_images) {
+function car_lane_game(parentElement, container_height, container_width) {
     this.parentElement = parentElement;
     this.height = container_height;
     // console.log("height>>", this.height);
     this.width = container_width;
-    this.background_images = background_images;
+    this.background_images = document.getElementsByClassName("background_container")[0].getElementsByTagName("img");;
     // console.log(this.background_images[0]);
     this.image_height = this.background_images[0].clientHeight;
     // console.log("image height>>", this.image_height);
     this.total_score = 0;
-
+    this.event_listener = 0;
 
     this.car_speed = 8;
     this.image_index = 0;
@@ -108,7 +107,7 @@ function car_lane_game(parentElement, container_height, container_width, backgro
 
 
 
-        window.addEventListener("keydown", function(event) {
+        window.addEventListener("keydown", this.event_listener = function(event) {
             // console.log("starting car_position", that.car_position);
             if (event.keyCode == '39') {
                 // right arrow key
@@ -153,7 +152,7 @@ function car_lane_game(parentElement, container_height, container_width, backgro
 
             }
             // console.log("ending car_position", that.car_position);
-        });
+        }, true);
 
         // clearInterval(that.game);
         this.game = setInterval(this.play_game, 50);
@@ -380,7 +379,7 @@ function car_lane_game(parentElement, container_height, container_width, backgro
         this.other_cars_left = [];
         that.image_index = -(that.image_height - that.height);
         that.background_images[0].style.marginTop = that.image_index + "px";
-        // window.removeEventListener("keydown", function(event) {});
+        window.removeEventListener("keydown", this.event_listener, true);
         that.start_playing_game();
     }
 
@@ -390,4 +389,4 @@ function car_lane_game(parentElement, container_height, container_width, backgro
 
 var parentElement = document.getElementsByClassName("main_container");
 
-start_game = new car_lane_game(parentElement, container_height, container_width, background_images).init();
+start_game = new car_lane_game(parentElement, container_height, container_width).init();
