@@ -228,9 +228,9 @@ function car_lane_game(parentElement, container_height, container_width, backgro
     this.first_col_cars = function() {
         var first_col_car_parent = document.getElementsByClassName("main_container")[0];
         var first_col_car_box = document.createElement('div');
-        that.other_cars_height[that.number_of_cars] = (that.height / 5);
+        that.other_cars_height[that.number_of_cars] = (that.height / 6);
         first_col_car_box.style.height = that.other_cars_height[that.number_of_cars] + "px";
-        that.other_cars_width[that.number_of_cars] = (that.width / 5);
+        that.other_cars_width[that.number_of_cars] = (that.width / 6);
         first_col_car_box.style.width = that.other_cars_width[that.number_of_cars] + "px";
         var starting_position = -20;
 
@@ -256,9 +256,9 @@ function car_lane_game(parentElement, container_height, container_width, backgro
     this.second_col_cars = function() {
         var second_col_car_parent = document.getElementsByClassName("main_container")[0];
         var second_col_car_box = document.createElement('div');
-        that.other_cars_height[that.number_of_cars] = (this.height / 5);
+        that.other_cars_height[that.number_of_cars] = (this.height / 6);
         second_col_car_box.style.height = that.other_cars_height[that.number_of_cars] + "px";
-        that.other_cars_width[that.number_of_cars] = (that.width / 5);
+        that.other_cars_width[that.number_of_cars] = (that.width / 6);
         second_col_car_box.style.width = that.other_cars_width[that.number_of_cars] + "px";
         var starting_position = -20;
         second_col_car_box.style.top = starting_position + "px";
@@ -282,9 +282,9 @@ function car_lane_game(parentElement, container_height, container_width, backgro
     this.third_col_cars = function() {
         var third_col_car_parent = document.getElementsByClassName("main_container")[0];
         var third_col_car_box = document.createElement('div');
-        that.other_cars_height[that.number_of_cars] = (this.height / 5);
+        that.other_cars_height[that.number_of_cars] = (this.height / 6);
         third_col_car_box.style.height = that.other_cars_height[that.number_of_cars] + "px";
-        that.other_cars_width[that.number_of_cars] = (that.width / 5);
+        that.other_cars_width[that.number_of_cars] = (that.width / 6);
         third_col_car_box.style.width = that.other_cars_width[that.number_of_cars] + "px";
         var starting_position = -20;
         third_col_car_box.style.top = starting_position + "px";
