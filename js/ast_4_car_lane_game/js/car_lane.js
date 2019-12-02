@@ -35,6 +35,7 @@ function car_lane_game(parentElement, container_height, container_width) {
     this.other_cars_height = [];
     this.other_cars_width = [];
     this.other_cars_left = [];
+    this.car_flag = 0;
     // this.other_cars_top = [];
 
 
@@ -86,9 +87,9 @@ function car_lane_game(parentElement, container_height, container_width) {
     this.start_playing_game = function() {
         var main_car_parent = document.getElementsByClassName("main_container")[0];
         var main_car_box = document.createElement('div');
-        this.main_car_height = (this.height / 6);
+        this.main_car_height = (this.height / 7);
         main_car_box.style.height = this.main_car_height + "px";
-        this.main_car_width = (this.width / 6);
+        this.main_car_width = (this.width / 7);
         main_car_box.style.width = this.main_car_width + "px";
         this.main_car_top = (this.height - (this.height / 4.5));
         main_car_box.style.top = this.main_car_top + "px";
@@ -170,13 +171,17 @@ function car_lane_game(parentElement, container_height, container_width) {
         document.getElementById("speed").innerHTML = that.car_speed + "KPH";
         that.background_movement();
         if (that.time_counter % 3000 == 0 || that.time_counter % 11000 == 0) {
+            this.car_flag++;
             that.first_col_cars();
         }
         if (that.time_counter % 5000 == 0 || that.time_counter % 13000 == 0) {
+            this.car_flag++;
             that.second_col_cars();
         }
         if (that.time_counter % 7000 == 0 || that.time_counter % 17000 == 0) {
-            that.third_col_cars();
+            if (this.car_flag < 2) {
+                that.third_col_cars();
+            }
         }
 
         // var number_of_cars = that.other_car_position.length;
