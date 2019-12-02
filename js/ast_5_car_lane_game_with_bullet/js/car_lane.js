@@ -17,6 +17,18 @@ function car_lane_game(parentElement, container_height, container_width) {
     this.total_score = 0;
     this.event_listener = 0;
 
+    this.bullets = [];
+    this.bullet_available = 5;
+    this.bullet_numbers = 0;
+    this.bullet_height = (this.height / 10);
+    this.bullet_width = (this.width / 10);
+    this.bullet_left = [];
+    this.bullet_shift = -10;
+    this.bullet_top = [];
+
+    this.total_kills = 0;
+    // this.other_cars_parent = document.getElementsByClassName("other_car_box")[0];
+
     this.car_speed = 8;
     this.image_index = 0;
     this.car_position = 1;
@@ -152,6 +164,38 @@ function car_lane_game(parentElement, container_height, container_width) {
                 }
 
             }
+            if (event.keyCode == '32') {
+                // 
+                //space key for bullet
+
+                // console.log("inside space event");
+                if (that.bullet_available > 0) {
+                    var bullet_parent = document.getElementsByClassName("main_container")[0];
+                    var bullet = document.createElement('div');
+
+                    bullet.style.height = that.bullet_height + "px";
+                    // console.log(this.height);
+
+                    bullet.style.width = that.bullet_width + "px";
+                    var bullet_topmargin = (that.main_car_top - (that.bullet_height));
+                    bullet.style.top = bullet_topmargin + "px";
+                    that.bullet_top.push(bullet_topmargin);
+                    var bullet_leftmargin = (that.main_car_left + 5);
+                    that.bullet_left.push(bullet_leftmargin);
+                    bullet.style.left = bullet_leftmargin + "px";
+
+                    bullet.classList.add("bullet");
+                    var bullet_image = document.createElement('img');
+                    bullet_image.src = "./images/bullet.png";
+                    bullet.appendChild(bullet_image);
+                    bullet_parent.appendChild(bullet);
+                    that.bullets.push(bullet);
+                    that.bullet_numbers++;
+                    that.bullet_available--;
+                    // console.log(that.bullets.length);
+                }
+
+            }
             // console.log("ending car_position", that.car_position);
         }, true);
 
@@ -162,13 +206,65 @@ function car_lane_game(parentElement, container_height, container_width) {
     }
 
     this.play_game = function() {
+        if (that.bullets.length != 0) {
+            // console.log("entered bullets lenght", that.bullets.length);
+            for (var i = 0; i < that.bullets.length; i++) {
 
+                that.bullet_top[i] += that.bullet_shift;
+                that.bullets[i].style.top = that.bullet_top[i] + "px";
+                if (that.bullet_top[i] < 0) {
+                    that.bullet_top.splice(i, 1);
+                    that.bullets.splice(i, 1);
+                    that.bullet_left.splice(i, 1);
+                    document.getElementsByClassName("bullet")[i].remove();
+                }
+
+
+
+                for (var j = 0; j < that.number_of_cars; j++) {
+                    // 
+                    if (that.bullet_left[i] < that.other_cars_left[j] + that.other_cars_width[j] &&
+                        that.bullet_left[i] + that.bullet_width > that.other_cars_left[j] &&
+                        that.bullet_top[i] < that.other_car_position[j] + that.other_cars_height[j] &&
+                        that.bullet_top[i] + that.bullet_height > that.other_car_position[j]) {
+
+                        // console.log(document.getElementsByClassName("other_car_box")[j]);
+                        that.bullet_top.splice(i, 1);
+                        that.bullets.splice(i, 1);
+                        that.bullet_left.splice(i, 1);
+                        document.getElementsByClassName("bullet")[i].remove();
+                        // console.log(document.getElementsByClassName("other_car_box")[j]);
+                        // console.log(that.cars[j]);
+                        document.getElementsByClassName("other_car_box")[j].remove();
+                        that.other_car_position.splice(j, 1);
+                        that.cars.splice(j, 1);
+                        that.other_cars_height.splice(j, 1);
+                        that.other_cars_width.splice(j, 1);
+                        that.other_cars_left.splice(j, 1);
+                        // that.total_score++;
+                        that.total_kills++;
+
+                        that.number_of_cars--;
+                        // console.log("hit the car");
+                        // clearInterval(that.game);
+                        // that.ending();
+                    }
+                }
+
+                // console.log("entered bullets lenght loop");
+
+
+            }
+        }
 
 
         that.time_counter = that.time_counter + 50;
-        document.getElementById("score").innerHTML = "score:" + that.total_score;
+        if (that.time_counter % 45000 == 0) { that.bullet_available += 5; }
+        document.getElementById("score").innerHTML = "Passed:" + that.total_score;
         document.getElementById("time").innerHTML = Math.floor(that.time_counter / 1000) + "sec";
         document.getElementById("speed").innerHTML = that.car_speed + "KPH";
+        document.getElementById("bullet_count").innerHTML = "Bullets:" + that.bullet_available;
+        document.getElementById("car_kills").innerHTML = "Destroyed:" + that.total_kills;
         that.background_movement();
         if (that.time_counter % 3000 == 0) { //|| that.time_counter % 11000 == 0
             that.car_flag++;
@@ -185,43 +281,48 @@ function car_lane_game(parentElement, container_height, container_width) {
         that.car_flag == 0;
         // var number_of_cars = that.other_car_position.length;
         // console.log(number_of_cars);
-
-        for (var i = 0; i < that.number_of_cars + 1; i++) {
-            //*******collision detection********* */
-            if (that.main_car_left < that.other_cars_left[i] + that.other_cars_width[i] &&
-                that.main_car_left + that.main_car_width > that.other_cars_left[i] &&
-                that.main_car_top < that.other_car_position[i] + that.other_cars_height[i] &&
-                that.main_car_top + that.main_car_height > that.other_car_position[i]) {
-                for (var i = 0; i < that.number_of_cars; i++) {
-                    document.getElementsByClassName("other_car_box")[0].remove();
+        if (that.number_of_cars != 0) {
+            for (var i = 0; i < that.number_of_cars; i++) {
+                //*******collision detection********* */
+                if (that.main_car_left < that.other_cars_left[i] + that.other_cars_width[i] &&
+                    that.main_car_left + that.main_car_width > that.other_cars_left[i] &&
+                    that.main_car_top < that.other_car_position[i] + that.other_cars_height[i] &&
+                    that.main_car_top + that.main_car_height > that.other_car_position[i]) {
+                    window.removeEventListener("keydown", that.event_listener, true);
+                    for (var i = 0; i < that.number_of_cars; i++) {
+                        document.getElementsByClassName("other_car_box")[0].remove();
+                    }
+                    for (var i = 0; i < that.bullets.length; i++) {
+                        document.getElementsByClassName("bullet")[0].remove();
+                    }
+                    clearInterval(that.game);
+                    that.ending();
                 }
-                clearInterval(that.game);
-                that.ending();
+                if (that.other_car_position[i] > that.height) {
+                    that.other_car_position.splice(i, 1);
+                    // console.log(that.cars[i]);
+                    document.getElementsByClassName("other_car_box")[0].remove();
+                    that.cars.splice(i, 1);
+                    that.other_cars_height.splice(i, 1);
+                    that.other_cars_width.splice(i, 1);
+                    that.other_cars_left.splice(i, 1);
+                    that.total_score++;
+
+                    that.number_of_cars--;
+
+                }
+                // console.log(that.number_of_cars);
+
+                //collision detection and ending the game
+
+                // console.log("comparing", that.main_car.style.left < that.cars[i].style.left + that.cars[i].style.width);
+                var top_margin = that.other_car_position[i];
+                // console.log(that.other_car_position[0]);
+
+                that.other_car_position[i] = (top_margin + that.car_speed);
+                that.cars[i].style.top = that.other_car_position[i] + "px";
+                // console.log(that.cars[0]);
             }
-            if (that.other_car_position[i] > that.height) {
-                that.other_car_position.splice(i, 1);
-                console.log(that.cars[i]);
-                document.getElementsByClassName("other_car_box")[0].remove();
-                that.cars.splice(i, 1);
-                that.other_cars_height.splice(i, 1);
-                that.other_cars_width.splice(i, 1);
-                that.other_cars_left.splice(i, 1);
-                that.total_score++;
-
-                that.number_of_cars--;
-
-            }
-            // console.log(that.number_of_cars);
-
-            //collision detection and ending the game
-
-            // console.log("comparing", that.main_car.style.left < that.cars[i].style.left + that.cars[i].style.width);
-            var top_margin = that.other_car_position[i];
-            // console.log(that.other_car_position[0]);
-
-            that.other_car_position[i] = (top_margin + that.car_speed);
-            that.cars[i].style.top = that.other_car_position[i] + "px";
-            // console.log(that.cars[0]);
         }
 
 
@@ -235,7 +336,7 @@ function car_lane_game(parentElement, container_height, container_width) {
         first_col_car_box.style.height = that.other_cars_height[that.number_of_cars] + "px";
         that.other_cars_width[that.number_of_cars] = (that.width / 6);
         first_col_car_box.style.width = that.other_cars_width[that.number_of_cars] + "px";
-        var starting_position = -20;
+        var starting_position = -40;
 
         first_col_car_box.style.top = starting_position + "px";
 
@@ -244,7 +345,7 @@ function car_lane_game(parentElement, container_height, container_width) {
 
         first_col_car_box.classList.add("other_car_box");
         var first_col_car_image = document.createElement('img');
-        var car = Math.floor(Math.random() * 2);
+        var car = Math.floor(Math.random() * 4);
         first_col_car_image.src = "./images/car_" + car + ".png";
         // first_col_car_image.style.transform = "rotate(180deg)";
         first_col_car_box.appendChild(first_col_car_image);
@@ -263,7 +364,7 @@ function car_lane_game(parentElement, container_height, container_width) {
         second_col_car_box.style.height = that.other_cars_height[that.number_of_cars] + "px";
         that.other_cars_width[that.number_of_cars] = (that.width / 6);
         second_col_car_box.style.width = that.other_cars_width[that.number_of_cars] + "px";
-        var starting_position = -20;
+        var starting_position = -40;
         second_col_car_box.style.top = starting_position + "px";
 
         that.other_cars_left[that.number_of_cars] = (this.width / 2.6);
@@ -271,7 +372,7 @@ function car_lane_game(parentElement, container_height, container_width) {
 
         second_col_car_box.classList.add("other_car_box");
         var second_col_car_image = document.createElement('img');
-        var car = Math.floor(Math.random() * 2);
+        var car = Math.floor(Math.random() * 4);
         second_col_car_image.src = "./images/car_" + car + ".png";
         // second_col_car_image.style.transform = "rotate(180deg)";
         second_col_car_box.appendChild(second_col_car_image);
@@ -289,7 +390,7 @@ function car_lane_game(parentElement, container_height, container_width) {
         third_col_car_box.style.height = that.other_cars_height[that.number_of_cars] + "px";
         that.other_cars_width[that.number_of_cars] = (that.width / 6);
         third_col_car_box.style.width = that.other_cars_width[that.number_of_cars] + "px";
-        var starting_position = -20;
+        var starting_position = -40;
         third_col_car_box.style.top = starting_position + "px";
 
         that.other_cars_left[that.number_of_cars] = (this.width / 1.3846);
@@ -297,7 +398,7 @@ function car_lane_game(parentElement, container_height, container_width) {
 
         third_col_car_box.classList.add("other_car_box");
         var third_col_car_image = document.createElement('img');
-        var car = Math.floor(Math.random() * 2);
+        var car = Math.floor(Math.random() * 4);
         third_col_car_image.src = "./images/car_" + car + ".png";
         // third_col_car_image.style.transform = "rotate(180deg)";
         third_col_car_box.appendChild(third_col_car_image);
@@ -362,6 +463,16 @@ function car_lane_game(parentElement, container_height, container_width) {
         document.getElementsByClassName("ending_box")[0].remove();
         this.total_score = 0;
 
+        this.bullets = [];
+        this.bullet_available = 5;
+        this.bullet_numbers = 0;
+        this.bullet_height = (this.height / 10);
+        this.bullet_width = (this.width / 10);
+        this.bullet_left = [];
+        this.bullet_shift = -10;
+        this.bullet_top = [];
+
+        this.total_kills = 0;
 
         this.car_speed = 8;
         this.image_index = 0;
@@ -378,12 +489,13 @@ function car_lane_game(parentElement, container_height, container_width) {
         this.main_car_left = 0;
         this.main_car_top = 0;
 
+
         this.other_cars_height = [];
         this.other_cars_width = [];
         this.other_cars_left = [];
         that.image_index = -(that.image_height - that.height);
         that.background_images[0].style.marginTop = that.image_index + "px";
-        window.removeEventListener("keydown", this.event_listener, true);
+
         that.start_playing_game();
     }
 
