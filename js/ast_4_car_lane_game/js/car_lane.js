@@ -93,7 +93,7 @@ function car_lane_game(parentElement, container_height, container_width) {
         this.main_car_top = (this.height - (this.height / 4.5));
         main_car_box.style.top = this.main_car_top + "px";
 
-        this.main_car_left = (this.width / 2.6);
+        this.main_car_left = (this.width / 2.5);
         main_car_box.style.left = this.main_car_left + "px";
 
         main_car_box.classList.add("main_car_box");
@@ -117,7 +117,7 @@ function car_lane_game(parentElement, container_height, container_width) {
                     that.car_position = 2;
                 }
                 if (that.car_position == 0) {
-                    that.main_car_left = (that.width / 2.6);
+                    that.main_car_left = (that.width / 2.5);
                     main_car_box.style.left = that.main_car_left + "px";
                     that.car_position = 1;
                 }
@@ -140,7 +140,7 @@ function car_lane_game(parentElement, container_height, container_width) {
                     that.car_position = 0;
                 }
                 if (that.car_position == 2) {
-                    that.main_car_left = (that.width / 2.6);
+                    that.main_car_left = (that.width / 2.5);
                     main_car_box.style.left = that.main_car_left + "px";
                     that.car_position = 1;
                 }
@@ -242,7 +242,7 @@ function car_lane_game(parentElement, container_height, container_width) {
         var first_col_car_image = document.createElement('img');
         var car = Math.floor(Math.random() * 2);
         first_col_car_image.src = "./images/car_" + car + ".png";
-        first_col_car_image.style.transform = "rotate(180deg)";
+        // first_col_car_image.style.transform = "rotate(180deg)";
         first_col_car_box.appendChild(first_col_car_image);
         first_col_car_parent.appendChild(first_col_car_box);
         that.cars.push(first_col_car_box);
@@ -269,7 +269,7 @@ function car_lane_game(parentElement, container_height, container_width) {
         var second_col_car_image = document.createElement('img');
         var car = Math.floor(Math.random() * 2);
         second_col_car_image.src = "./images/car_" + car + ".png";
-        second_col_car_image.style.transform = "rotate(180deg)";
+        // second_col_car_image.style.transform = "rotate(180deg)";
         second_col_car_box.appendChild(second_col_car_image);
         second_col_car_parent.appendChild(second_col_car_box);
         that.cars.push(second_col_car_box);
@@ -295,7 +295,7 @@ function car_lane_game(parentElement, container_height, container_width) {
         var third_col_car_image = document.createElement('img');
         var car = Math.floor(Math.random() * 2);
         third_col_car_image.src = "./images/car_" + car + ".png";
-        third_col_car_image.style.transform = "rotate(180deg)";
+        // third_col_car_image.style.transform = "rotate(180deg)";
         third_col_car_box.appendChild(third_col_car_image);
         third_col_car_parent.appendChild(third_col_car_box);
         that.cars.push(third_col_car_box);
@@ -307,7 +307,7 @@ function car_lane_game(parentElement, container_height, container_width) {
     this.background_movement = function() {
         if (that.image_index >= -that.car_speed) {
             that.image_index = -(that.image_height - that.height);
-            that.car_speed += 1;
+            that.car_speed += 2;
         }
         that.image_index += that.car_speed;
         that.background_images[0].style.marginTop = that.image_index + "px";
@@ -337,7 +337,7 @@ function car_lane_game(parentElement, container_height, container_width) {
         // start_box.style.paddingLeft = 4 + "px";
         ending_box.style.paddingBottom = 8 + "%";
         // console.log("left>>", start_box.style.paddingLeft)
-        ending_box.innerHTML = "<b>Restart The Game</b><br/>score:" + that.total_score; //check 
+        ending_box.innerHTML = "<b>Game Over<br/>score:" + that.total_score + "<br/>Play Again</b>"; //check 
         ending_box.classList.add("ending_box");
         var ending_image = document.createElement('img');
         ending_image.src = "https://www.animatedimages.org/data/media/426/animated-button-image-0329.gif";
