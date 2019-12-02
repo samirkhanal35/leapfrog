@@ -87,7 +87,7 @@ function car_lane_game(parentElement, container_height, container_width) {
     this.start_playing_game = function() {
         var main_car_parent = document.getElementsByClassName("main_container")[0];
         var main_car_box = document.createElement('div');
-        this.main_car_height = (this.height / 7);
+        this.main_car_height = (this.height / 6.2);
         main_car_box.style.height = this.main_car_height + "px";
         this.main_car_width = (this.width / 7);
         main_car_box.style.width = this.main_car_width + "px";
@@ -170,20 +170,19 @@ function car_lane_game(parentElement, container_height, container_width) {
         document.getElementById("time").innerHTML = Math.floor(that.time_counter / 1000) + "sec";
         document.getElementById("speed").innerHTML = that.car_speed + "KPH";
         that.background_movement();
-        if (that.time_counter % 3000 == 0 || that.time_counter % 11000 == 0) {
-            this.car_flag++;
+        if (that.time_counter % 3000 == 0) { //|| that.time_counter % 11000 == 0
+            that.car_flag++;
             that.first_col_cars();
-        }
-        if (that.time_counter % 5000 == 0 || that.time_counter % 13000 == 0) {
-            this.car_flag++;
-            that.second_col_cars();
-        }
-        if (that.time_counter % 7000 == 0 || that.time_counter % 17000 == 0) {
-            if (this.car_flag < 2) {
+        } else { // || that.time_counter % 17000 == 0
+            if (that.time_counter % 2000 == 0) {
                 that.third_col_cars();
             }
         }
-
+        if (that.time_counter % 5000 == 0) { //|| that.time_counter % 13000 == 0
+            that.car_flag++;
+            that.second_col_cars();
+        }
+        that.car_flag == 0;
         // var number_of_cars = that.other_car_position.length;
         // console.log(number_of_cars);
 
@@ -232,7 +231,7 @@ function car_lane_game(parentElement, container_height, container_width) {
     this.first_col_cars = function() {
         var first_col_car_parent = document.getElementsByClassName("main_container")[0];
         var first_col_car_box = document.createElement('div');
-        that.other_cars_height[that.number_of_cars] = (that.height / 6);
+        that.other_cars_height[that.number_of_cars] = (that.height / 5.8);
         first_col_car_box.style.height = that.other_cars_height[that.number_of_cars] + "px";
         that.other_cars_width[that.number_of_cars] = (that.width / 6);
         first_col_car_box.style.width = that.other_cars_width[that.number_of_cars] + "px";
@@ -260,7 +259,7 @@ function car_lane_game(parentElement, container_height, container_width) {
     this.second_col_cars = function() {
         var second_col_car_parent = document.getElementsByClassName("main_container")[0];
         var second_col_car_box = document.createElement('div');
-        that.other_cars_height[that.number_of_cars] = (this.height / 6);
+        that.other_cars_height[that.number_of_cars] = (that.height / 5.8);
         second_col_car_box.style.height = that.other_cars_height[that.number_of_cars] + "px";
         that.other_cars_width[that.number_of_cars] = (that.width / 6);
         second_col_car_box.style.width = that.other_cars_width[that.number_of_cars] + "px";
@@ -286,7 +285,7 @@ function car_lane_game(parentElement, container_height, container_width) {
     this.third_col_cars = function() {
         var third_col_car_parent = document.getElementsByClassName("main_container")[0];
         var third_col_car_box = document.createElement('div');
-        that.other_cars_height[that.number_of_cars] = (this.height / 6);
+        that.other_cars_height[that.number_of_cars] = (that.height / 5.8);
         third_col_car_box.style.height = that.other_cars_height[that.number_of_cars] + "px";
         that.other_cars_width[that.number_of_cars] = (that.width / 6);
         third_col_car_box.style.width = that.other_cars_width[that.number_of_cars] + "px";
