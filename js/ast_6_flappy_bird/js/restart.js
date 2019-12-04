@@ -1,5 +1,8 @@
 function restart_game() {
     window.removeEventListener("keydown", event_listener, true);
+    if (Highscore_value < score_value) {
+        Highscore_value = score_value;
+    }
     var flappybird = 0;
     var myObstacles = [];
 
@@ -35,7 +38,8 @@ function startGame() {
     myBackground.update();
     // start_image.update();
     myMoving_background = new component(480, 20, "./images/bottom_background.png", 0, 270, "background");
-    myScore = new component("30px", "Consolas", "white", 280, 40, "text");
+    myScore = new component("30px", "Consolas", "white", 100, 40, "text");
+    Highscore = new component("30px", "Consolas", "white", 250, 40, "text");
 
     flappybird.update();
 

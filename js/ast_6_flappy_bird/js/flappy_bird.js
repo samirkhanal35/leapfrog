@@ -11,6 +11,8 @@ var bird_prev_state;
 var start_image;
 var event_listener;
 var restart_image;
+var Highscore_value = 0;
+var Highscore;
 
 var GameArea = {
     canvas: document.createElement("canvas"),
@@ -96,8 +98,13 @@ function updateGameArea() {
         myObstacles[i].update();
     }
     if (score_value % 1 == 0) {
-        myScore.text = Math.floor(score_value / 2); //to maintain with speed of execution
+        myScore.text = "Score" + Math.floor(score_value / 2); //to maintain with speed of execution
         myScore.update();
+        if (Highscore_value < score_value) {
+            Highscore_value = Math.floor(score_value / 2);
+        }
+        Highscore.text = "High score" + Highscore_value;
+        Highscore.update();
     }
 }
 
