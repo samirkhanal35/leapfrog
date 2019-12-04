@@ -10,6 +10,7 @@ var jump_sound;
 var bird_prev_state;
 var start_image;
 var event_listener;
+var restart_image;
 
 var GameArea = {
     canvas: document.createElement("canvas"),
@@ -60,6 +61,8 @@ function updateGameArea() {
     for (i = 0; i < myObstacles.length; i += 1) {
         if (flappybird.crashWith(myObstacles[i])) {
             GameArea.stop();
+
+            restart_image.update();
             setTimeout(restart_game, 1000);
         }
         if (myObstacles[i].x + 20 < 0) {
@@ -153,7 +156,9 @@ function bird_box(width, height, color, x, y, type) {
         if (this.y > rockbottom) {
             this.y = rockbottom;
             GameArea.stop();
-            setTimeout(restart_game, 1000);
+            // restart_image = new component(200, 150, "./images/restart.png", 150, 150, "image");
+            restart_image.update();
+            setTimeout(restart_game, 200);
         }
 
 

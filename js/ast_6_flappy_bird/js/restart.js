@@ -11,11 +11,10 @@ function restart_game() {
     var jump_sound = 0;
     var bird_prev_state = 0;
     var start_image = 0;
-    var restart_image;
+
     window.addEventListener("keydown", event_listener = function(event) {
         if (event.keyCode == '32') {
-            restart_image = new component(200, 150, "./images/restart.png", 150, 150, "image");
-            restart_image.update();
+
             window.removeEventListener("keydown", event_listener, true);
             startGame();
         }
@@ -29,6 +28,7 @@ function startGame() {
     jump_sound = new sound("jump_sound.mp3");
     // background_sound.play();
     GameArea.start();
+    restart_image = new component(100, 80, "./images/restart.png", 150, 150, "image");
     flappybird = new bird_box(30, 30, "./images/bird.gif", 10, 120, "image");
     // start_image = new component(480, 270, "./images/background.png", 0, 0, "image");
     myBackground = new component(480, 270, "./images/background.png", 0, 0, "image");
