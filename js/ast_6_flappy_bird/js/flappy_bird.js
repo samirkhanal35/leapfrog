@@ -37,7 +37,7 @@ var GameArea = {
                 // bird_prev_state.rotate(-30);
                 // bird_prev_state.fillRect(flappybird.width / -2, flappybird.height / -2, flappybird.width, flappybird.height);
 
-                flappybird.y -= 30;
+                flappybird.y -= 40;
                 // ctx.restore();
                 flappybird.gravitySpeed = 0;
 
@@ -81,7 +81,7 @@ function updateGameArea() {
         x = GameArea.canvas.width; //width
         minHeight = 100;
         maxHeight = 200;
-        height = Math.floor(Math.random() * (maxHeight - minHeight + 1) + minHeight);
+        height = Math.floor(Math.random() * (maxHeight - minHeight + 1) + (minHeight / 2));
         minGap = 80;
         maxGap = 100;
         gap = Math.floor(Math.random() * (maxGap - minGap + 1) + minGap);
@@ -89,7 +89,7 @@ function updateGameArea() {
         myObstacles.push(new component(20, 270 - height - gap, "./images/pipe.png", x, height + gap, "image"));
     }
     for (i = 0; i < myObstacles.length; i += 1) {
-        myObstacles[i].x += -1;
+        myObstacles[i].x += -1.5;
         myObstacles[i].update();
     }
     if (score_value % 1 == 0) {
@@ -126,8 +126,8 @@ function bird_box(width, height, color, x, y, type) {
     this.height = height;
     this.x = x;
     this.y = y;
-    this.speedY = 0;
-    this.gravity = 0.12;
+    this.speedY = 1;
+    this.gravity = 0.05;
     this.gravitySpeed = 0;
     if (type == "image") {
         this.image = new Image();

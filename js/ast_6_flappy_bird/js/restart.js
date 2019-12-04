@@ -11,7 +11,16 @@ function restart_game() {
     var jump_sound = 0;
     var bird_prev_state = 0;
     var start_image = 0;
-    startGame();
+    var restart_image;
+    window.addEventListener("keydown", event_listener = function(event) {
+        if (event.keyCode == '32') {
+            restart_image = new component(200, 150, "./images/restart.png", 150, 150, "image");
+            restart_image.update();
+            window.removeEventListener("keydown", event_listener, true);
+            startGame();
+        }
+    }, true)
+
 }
 
 
