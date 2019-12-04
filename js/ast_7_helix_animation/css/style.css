@@ -1,0 +1,17 @@
+#canvas {
+    background-color: #043a4a;
+    display: block;
+    margin: 0 auto;
+    margin-top: 0;
+    padding: 0%;
+}
+
+.helix_animation {
+    background-color: #043a4a;
+    display: block;
+    margin: 0 auto;
+    margin-left: 15%;
+    margin-top: 5%;
+    height: 350px;
+    width: 500px;
+}
