@@ -86,7 +86,7 @@ function updateGameArea() {
         maxGap = 100;
         gap = Math.floor(Math.random() * (maxGap - minGap + 1) + minGap);
         myObstacles.push(new component(20, height, "./images/pipe1.png", x, 0, "image"));
-        myObstacles.push(new component(20, GameArea.canvas.height - height - gap, "./images/pipe.png", x, height + gap, "image"));
+        myObstacles.push(new component(20, 270 - height - gap, "./images/pipe.png", x, height + gap, "image"));
     }
     for (i = 0; i < myObstacles.length; i += 1) {
         myObstacles[i].x += -1;
