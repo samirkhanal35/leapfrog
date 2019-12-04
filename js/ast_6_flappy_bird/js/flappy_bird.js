@@ -93,7 +93,7 @@ function updateGameArea() {
         myObstacles[i].update();
     }
     if (score_value % 1 == 0) {
-        myScore.text = score_value / 2; //to maintain with speed of execution
+        myScore.text = Math.floor(score_value / 2); //to maintain with speed of execution
         myScore.update();
     }
 }
@@ -127,7 +127,7 @@ function bird_box(width, height, color, x, y, type) {
     this.x = x;
     this.y = y;
     this.speedY = 0;
-    this.gravity = 0.05;
+    this.gravity = 0.12;
     this.gravitySpeed = 0;
     if (type == "image") {
         this.image = new Image();
@@ -231,42 +231,42 @@ function component(width, height, color, x, y, type) {
 }
 
 
-function restart_game() {
-    window.removeEventListener("keydown", event_listener, true);
-    var flappybird = 0;
-    var myObstacles = [];
+// function restart_game() {
+//     window.removeEventListener("keydown", event_listener, true);
+//     var flappybird = 0;
+//     var myObstacles = [];
 
-    var myScore = 0;
-    var score_value = 0;
-    var myBackground = 0;
-    var myMoving_background = 0;
-    var background_sound = 0;
-    var jump_sound = 0;
-    var bird_prev_state = 0;
-    var start_image = 0;
-    startGame();
-}
-
-
-function startGame() {
-    // background_sound = new sound("background_sound.mp3");
-    jump_sound = new sound("jump_sound.mp3");
-    // background_sound.play();
-    GameArea.start();
-    flappybird = new bird_box(30, 30, "./images/bird.gif", 10, 120, "image");
-    // start_image = new component(480, 270, "./images/background.png", 0, 0, "image");
-    myBackground = new component(480, 270, "./images/background.png", 0, 0, "image");
-    myBackground.update();
-    // start_image.update();
-    myMoving_background = new component(480, 20, "./images/bottom_background.png", 0, 270, "background");
-    myScore = new component("30px", "Consolas", "white", 280, 40, "text");
-
-    flappybird.update();
+//     var myScore = 0;
+//     var score_value = 0;
+//     var myBackground = 0;
+//     var myMoving_background = 0;
+//     var background_sound = 0;
+//     var jump_sound = 0;
+//     var bird_prev_state = 0;
+//     var start_image = 0;
+//     startGame();
+// }
 
 
-}
+// function startGame() {
+//     // background_sound = new sound("background_sound.mp3");
+//     jump_sound = new sound("jump_sound.mp3");
+//     // background_sound.play();
+//     GameArea.start();
+//     flappybird = new bird_box(30, 30, "./images/bird.gif", 10, 120, "image");
+//     // start_image = new component(480, 270, "./images/background.png", 0, 0, "image");
+//     myBackground = new component(480, 270, "./images/background.png", 0, 0, "image");
+//     myBackground.update();
+//     // start_image.update();
+//     myMoving_background = new component(480, 20, "./images/bottom_background.png", 0, 270, "background");
+//     myScore = new component("30px", "Consolas", "white", 280, 40, "text");
 
-startGame();
+//     flappybird.update();
+
+
+// }
+
+// startGame();
 
 // function starting_box() {
 //     var starting_div = document.createElement("div");
