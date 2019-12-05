@@ -31,15 +31,15 @@ function startGame() {
     jump_sound = new sound("jump_sound.mp3");
     // background_sound.play();
     GameArea.start();
-    restart_image = new component(100, 80, "./images/restart.png", 150, 150, "image");
+    restart_image = new component("20px", "Consolas", "red", 60, 100, "text");
     flappybird = new bird_box(30, 30, "./images/bird.gif", 10, 120, "image");
     // start_image = new component(480, 270, "./images/background.png", 0, 0, "image");
     myBackground = new component(480, 270, "./images/background.png", 0, 0, "image");
     myBackground.update();
     // start_image.update();
     myMoving_background = new component(480, 20, "./images/bottom_background.png", 0, 270, "background");
-    myScore = new component("30px", "Consolas", "white", 100, 40, "text");
-    Highscore = new component("30px", "Consolas", "white", 250, 40, "text");
+    myScore = new component("30px", "Consolas", "white", 80, 40, "text");
+    Highscore = new component("30px", "Consolas", "white", 200, 40, "text");
 
     flappybird.update();
 

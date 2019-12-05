@@ -63,7 +63,7 @@ function updateGameArea() {
     for (i = 0; i < myObstacles.length; i += 1) {
         if (flappybird.crashWith(myObstacles[i])) {
             GameArea.stop();
-
+            restart_image.text = "press space to restart the game";
             restart_image.update();
             setTimeout(restart_game, 1000);
         }
@@ -163,7 +163,7 @@ function bird_box(width, height, color, x, y, type) {
         if (this.y > rockbottom) {
             this.y = rockbottom;
             GameArea.stop();
-            // restart_image = new component(200, 150, "./images/restart.png", 150, 150, "image");
+            restart_image.text = "press space to restart the game";
             restart_image.update();
             setTimeout(restart_game, 200);
         }
