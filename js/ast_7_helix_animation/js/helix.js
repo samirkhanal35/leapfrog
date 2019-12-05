@@ -2,7 +2,7 @@ var canvas = document.getElementById('helix');
 var context = canvas.getContext('2d');
 var phase = 0;
 var speed = 0.03;
-var maxCircleRadius = 8;
+var maxCircleRadius = 11;
 var frameCount = 0;
 var numRows = 10;
 var numCols = 15;
@@ -28,11 +28,11 @@ function draw() {
         }
         x = 0;
         for (var column = 0; column < numCols; column++) {
-            x = x + 30;
+            x = x + 15;
             columnOffset = (column * 2 * Math.PI) / 15; //value of columnoffset from 0 to 2PI
 
             for (var row = 0; row < numRows; row++) {
-                var y = canvas.height / 4 + row * 10 + Math.sin(strandPhase + columnOffset) * 50;
+                var y = canvas.height / 4 + row * 15 + Math.sin(strandPhase + columnOffset) * 30;
                 //sizeOffset changes the radius of the circle
                 var sizeOffset = (Math.cos(strandPhase - (row * 0.1) + columnOffset) + 1) * 0.4;
                 var circleRadius = sizeOffset * maxCircleRadius;
