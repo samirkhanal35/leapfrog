@@ -8,8 +8,7 @@ var numRows = 10;
 var numCols = 15;
 var numStrands = 2;
 var y;
-var from = (253, 174, 120);
-var to = (226, 129, 161);
+var colors = ['#FFAE73', '#FEA978', '#FEA57C', '#FEA081', '#FE9B86', '#FA968B', '#F59190', '#F08C95', '#EB879A', '#E17DA4'];
 
 
 function draw() {
@@ -40,7 +39,7 @@ function draw() {
 
                 context.beginPath();
                 context.arc(x, y, circleRadius, 0, Math.PI * 2, false);
-                context.fillStyle = "#ffae73";
+                context.fillStyle = colors[row];
                 context.fill();
                 context.closePath();
             }
