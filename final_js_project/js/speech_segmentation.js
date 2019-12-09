@@ -14,6 +14,7 @@ this.record_audio = function(a) {
         const mediaRecorder = new MediaRecorder(stream);
         mediaRecorder.start();
         microphone_flag = 1;
+        this.console.log("inside record_audio", microphone_flag);
         var mediaStream = stream;
 
         const audioChunks = [];
@@ -36,6 +37,7 @@ this.record_audio = function(a) {
 
             fileReader.onload = function(event) {
                 let arrayBuffer = fileReader.result;
+                // console.log(arrayBuffer.getChannelData(0));
                 array = new Int8Array(arrayBuffer);
                 // console.log(array);
                 mediaStream.stop();

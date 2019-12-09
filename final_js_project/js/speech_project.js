@@ -5,35 +5,134 @@ var a = 3;
 var speech_array = [];
 var speech_play = 0;
 var record_interval;
+var normalization_multiplier = 0;
+var labels = document.getElementById("labels");
+var prev_y = 0;
+var label_height = 45;
+var label_height_value = 150
+for (var i = 0; i < 7; i++) {
+    // console.log("inside label");
+    var label_value = document.createElement('div');
+    label_value.classList.add("label_value");
+    label_value.innerHTML = label_height_value;
+    label_value.clientTop = label_height;
+    label_height += 45;
+    label_height_value -= 50;
+    labels.appendChild(label_value);
+}
+
+
 
 record.addEventListener("click", record_event = function(event) {
+    microphone_flag = 0;
+    console.log(microphone_flag);
     record_audio(a);
+    console.log(a);
     var b = a;
     var interval = setInterval(() => {
         if (microphone_flag == 1) {
             document.getElementById("record_time").innerHTML = b + "sec";
+            console.log("microphone_flag>>1");
             b--;
         }
         if (microphone_flag == 2) {
             document.getElementById("record_time").innerHTML = b + "sec";
-            console.log("clear interval");
+            // console.log("clear interval");
             clearInterval(interval);
-            console.log(array);
-            console.log(play);
+            console.log("microphone_flag>>2");
+            // console.log(play);
+            // console.log(array.length);
             // play.play();
             document.getElementById("record_time").innerHTML = "recorded";
+            filterData();
         }
     }, 1000);
 
 });
 play_sound.addEventListener("click", function(event) {
-        if (microphone_flag == 2) {
+    if (microphone_flag == 2) {
 
-            play.play();
+        play.play();
 
-        }
-    })
-    // console.log(play);
+    }
+});
+
+const filterData = function() {
+    const rawData = array; // We only need to work with one channel of data
+    const samples = 100; // Number of samples we want to have in our final data set
+    const blockSize = Math.floor(rawData.length / samples); // the number of samples in each subdivision
+    var filteredData = [];
+    for (let i = 0; i < samples; i++) {
+
+        filteredData.push(rawData[i * samples]); // divide the sum by the block size to get the average
+    }
+    var max = Math.max.apply(Math, filteredData);
+    var min = Math.min.apply(Math, filteredData);
+    // console.log(filteredData);
+    speech_visualization(filteredData, max, min);
+
+
+    // // console.log("max>>", max);
+    // var multiplier = Math.pow(max, -1);
+    // // console.log(filteredData);
+    // normalization_multiplier = multiplier;
+    // // console.log(normalization_multiplier);
+    // var normalized_Data = filteredData.map(normalizeData);
+    // draw(normalized_Data);
+    // console.log(filteredData_1);
+    // console.log(filteredData.length);
+}
+
+// function normalizeData(filteredData) {
+//     // console.log("entered normalization");
+//     // console.log(filteredData);
+//     // console.log(normalization_multiplier);
+//     return filteredData * normalization_multiplier;
+//     // console.log("values", filteredData);
+// }
+
+
+function speech_visualization(filteredData, max, min) {
+    console.log("entered speech_visualization ");
+    const canvas = document.getElementById("myCanvas");
+    var width = canvas.clientWidth;
+    // console.log(width);
+    var height = canvas.clientHeight;
+    // console.log(height);
+    const ctx = canvas.getContext("2d");
+    ctx.clearRect(0, 0, width, height);
+    var x = 0;
+    prev_y = height / 2;
+    // console.log(prev_y);
+    for (var j = 0; j < filteredData.length; j++) {
+        // console.log("entered loop");
+        drawLineSegment(ctx, x, max, min, width, height, filteredData[j]);
+        x += 3;
+    }
+
+}
+
+const drawLineSegment = (ctx, x, max, min, width, height, data) => {
+    // console.log("entered draw fxn");
+    if (data < 0) { var dat = (-data) / min; } else {
+        var dat = data / max;
+    }
+    // console.log(dat);
+    // var y = height / 2 - (dat * 100);
+    var y = (height / 5) - 5 - (dat * 10);
+
+    ctx.lineWidth = 2; // how thick the line is
+    ctx.strokeStyle = "black"; // what color our line is
+    ctx.beginPath();
+    // // y = isEven ? y : -y;
+    ctx.moveTo(x, (height / 5) - 5);
+    ctx.lineTo(x, y);
+    // ctx.arc(x + 2, y + 2, 1, Math.PI);
+    // ctx.lineTo(x + 4, 0);
+    prev_y = y;
+    ctx.stroke();
+};
+// console.log(play);
 
 // play_audio();
 // console.log(record_audio.arguments);
