@@ -6,13 +6,13 @@
     border: 0px;
     background-color: black;
     color: white;
-    border-radius: 15%;
-    width: 9.5%;
+    border-radius: 40%;
+    width: 13%;
     font-size: 16px;
     height: 20px;
     text-align: center;
     /* align: center; */
-    margin-left: 45%;
+    margin-left: 43%;
     margin-top: 5%;
     margin-bottom: 1%;
 }
@@ -27,13 +27,28 @@
     border: 0px;
     background-color: black;
     color: white;
-    border-radius: 15%;
+    border-radius: 45%;
     width: 9.5%;
     font-size: 16px;
     height: 20px;
     text-align: center;
     /* align: center; */
     margin-left: 45%;
+    /* margin-top: 5%; */
+    margin-bottom: 1%;
+}
+
+.segment_div {
+    border: 0px;
+    background-color: black;
+    color: white;
+    border-radius: 40%;
+    width: 19%;
+    font-size: 16px;
+    height: 20px;
+    text-align: center;
+    /* align: center; */
+    margin-left: 40%;
     /* margin-top: 5%; */
     margin-bottom: 1%;
 }
@@ -79,6 +94,11 @@
 }
 
 #myCanvas {
+    width: 100%;
+    height: 100%;
+}
+
+.js-canvas {
     width: 100%;
     height: 100%;
 }
