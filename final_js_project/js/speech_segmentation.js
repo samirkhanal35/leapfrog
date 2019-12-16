@@ -4,7 +4,7 @@ var play = 0;
 var microphone_flag = 0;
 var segmented_array = [];
 var frequency = 0;
-const audioContext = new AudioContext();
+var audioContext;
 
 
 this.record_audio = function(a) {
@@ -115,7 +115,7 @@ this.record_audio = function(a) {
         // Get the canvas element and context
         canvas = document.querySelector('canvas');
         canvasContext = canvas.getContext('2d');
-
+        audioContext = new AudioContext();
         // Set the dimensions
         width = canvas.offsetWidth;
         height = canvas.offsetHeight;
