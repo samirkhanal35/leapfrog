@@ -1,6 +1,7 @@
 var record = document.getElementsByClassName("record_div")[0];
 var record_event;
 var play_sound = document.getElementsByClassName("play_div")[0];
+// var play_sound1 = document.getElementsByClassName("play_div1")[0];
 var segment_speech = document.getElementsByClassName("segment_div")[0];
 var a = 3; //in seconds
 var speech_array = [];
@@ -11,6 +12,8 @@ var labels = document.getElementById("labels");
 var prev_y = 0;
 var label_height = 45;
 var label_height_value = 150
+var segmenting_div = document.getElementById("segmenting");
+
 for (var i = 0; i < 7; i++) {
     // console.log("inside label");
     var label_value = document.createElement('div');
@@ -58,18 +61,29 @@ record.addEventListener("click", record_event = function(event) {
 play_sound.addEventListener("click", function(event) {
     if (microphone_flag == 2) {
         // console.log(array);
-        play_audio(array);
+        play_audio(play);
         // play.play();
 
     }
 });
 
+// play_sound1.addEventListener("click", function(event) {
+//     if (microphone_flag == 2) {
+//         console.log("segmented_array value>>", segmented_arrays[0]);
+//         playByteArray(segmented_arrays[0]);
+//         // play.play();
+
+//     }
+// });
+
 segment_speech.addEventListener("click", function(event) {
     if (microphone_flag == 2) {
+        segmenting_div.innerHTML = "Segmenting...";
 
-
-        // segment_audio(array);
-
+        segment_audio(array);
+        segmenting_div.innerHTML = "Segmented";
+    } else {
+        segmenting_div.innerHTML = "Please record audio first!!";
     }
 
 });
