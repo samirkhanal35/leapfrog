@@ -9,6 +9,8 @@ var bar_value = 0;
 var frequency_values = [];
 var bars = []
 var original_sound = [];
+// var play_flag = 0;
+
 
 var barWidth = 2;
 var barGutter = 2;
@@ -41,12 +43,14 @@ this.record_audio = function(a) {
 
 
     var time = a * 1000;
+    console.log("time>>", time);
     array = [];
     play = 0;
     microphone_flag = 0;
     var that = this;
     var mediastream;
     const audioChunks = [];
+    var bar_count = 0;
     // var index = 0;
 
     const processInput = audioProcessingEvent => {
@@ -65,6 +69,11 @@ this.record_audio = function(a) {
         // Calculate the average volume and store that value in our bars Array
         bar_value = getAverageVolume(tempArray);
         bars.push(bar_value);
+        // if (bar_count <= 32) {
+        //     bar_count++;
+
+        // }
+
 
         // console.log("bars value>>", bars);
         // Render the bars
@@ -120,7 +129,16 @@ this.record_audio = function(a) {
     this.init = function() {
         var label_height = 40;
         var label_height_value = 150;
-        // Get the canvas element and context
+
+        var graph_title = document.createElement('div');
+        graph_title.style.marginTop = 25 + "px";
+        graph_title.innerHTML = "Sampled graph of speech recorded";
+        graph_title.style.fontSize = 16 + "px";
+        graph_title.style.color = "blue";
+        graph_title.style.textAlign = "center";
+        // graph_title.style.marginLeft = 20 + "%";
+        document.body.appendChild(graph_title);
+
         var main_canvas = document.createElement('div');
         main_canvas.style.width = 825 + "px";
         main_canvas.style.height = 400 + "px";
@@ -129,8 +147,8 @@ this.record_audio = function(a) {
         document.body.appendChild(main_canvas);
         var main_canvas_labels = document.createElement('div');
         main_canvas_labels.style.float = 'left';
-        main_canvas_labels.style.borderTop = '1px solid white';
-        main_canvas_labels.style.borderBottom = '1px solid white';
+        main_canvas_labels.style.borderTop = '1px solid ';
+        main_canvas_labels.style.borderBottom = '1px solid ';
         main_canvas_labels.style.width = 20 + "px";
         main_canvas.appendChild(main_canvas_labels);
         for (var i = 0; i < 7; i++) {
@@ -141,7 +159,7 @@ this.record_audio = function(a) {
             label_value.innerHTML = label_height_value;
             // label_value.clientTop = label_height + "px";
             label_value.style.marginTop = 40 + "px";
-
+            label_value.style.color = "#49F1D5";
             label_value.style.textAlign = 'right';
             // label_value.style.float = 'left';
             // label_value.style.marginTop = 25 + "px";
@@ -183,7 +201,7 @@ this.record_audio = function(a) {
             },
             video: false
         }).then(stream => {
-            var time = a * 1000;
+            // var time = a * 1000;
             // this.array = [];
             // this.play = 0;
             array = [];
@@ -255,9 +273,9 @@ this.record_audio = function(a) {
 
 
 
-
+            console.log("time>>", time);
             setTimeout(() => {
-
+                console.log("inside settimeout");
                 mediaRecorder.stop();
                 index = 0;
 
@@ -286,6 +304,7 @@ this.record_audio = function(a) {
 this.play_audio = function(audio_play) {
 
     audio_play.play();
+
 }
 
 // //The intensity of a wave is proportional to the square of its amplitude
@@ -344,13 +363,14 @@ this.segment_audio = function(passed_array) {
             seg_play_button.style.width = 80 + "px";
             seg_play_button.style.height = 20 + "px";
             seg_play_button.style.float = 'left';
-            seg_play_button.style.border = '1px solid blue';
+            seg_play_button.style.paddingTop = 3 + "px";
+            // seg_play_button.style.border = '1px solid blue';
             seg_play_button.style.marginTop = 25 + seg_halfHeight + "px";
             seg_play_button.style.textAlign = 'center';
             seg_play_button.innerHTML = 'Play';
-            seg_play_button.style.color = 'white';
+            seg_play_button.style.color = 'black';
             seg_play_button.style.fontSize = 14 + "px";
-            seg_play_button.style.backgroundColor = 'black';
+            seg_play_button.style.backgroundColor = 'darkgray';
 
             seg_count++;
             seg_canvas_play.appendChild(seg_play_button);
