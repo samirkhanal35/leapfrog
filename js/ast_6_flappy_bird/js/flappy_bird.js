@@ -67,7 +67,7 @@ function updateGameArea() {
             restart_image.update();
             setTimeout(restart_game, 1000);
         }
-        if (myObstacles[i].x + 30 < 0) {
+        if (myObstacles[i].x + 20 < 0) {
             score_value++;
             myObstacles.splice(i, 1);
         }
@@ -90,8 +90,8 @@ function updateGameArea() {
         minGap = 80;
         maxGap = 100;
         gap = Math.floor(Math.random() * (maxGap - minGap + 1) + minGap);
-        myObstacles.push(new component(30, height, "./images/pipe1.png", x, 0, "image"));
-        myObstacles.push(new component(30, 270 - height - gap, "./images/pipe.png", x, height + gap, "image"));
+        myObstacles.push(new component(20, height, "./images/pipe1.png", x, 0, "image"));
+        myObstacles.push(new component(20, 270 - height - gap, "./images/pipe.png", x, height + gap, "image"));
     }
     for (i = 0; i < myObstacles.length; i += 1) {
         myObstacles[i].x += -1.5;
