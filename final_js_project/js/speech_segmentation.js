@@ -118,13 +118,53 @@ this.record_audio = function(a) {
 
     // Wait untill the page has loaded
     this.init = function() {
+        var label_height = 40;
+        var label_height_value = 150;
         // Get the canvas element and context
-        canvas = document.querySelector('canvas');
+        var main_canvas = document.createElement('div');
+        main_canvas.style.width = 825 + "px";
+        main_canvas.style.height = 400 + "px";
+        main_canvas.style.marginLeft = 18.5 + "%";
+        main_canvas.style.marginTop = 0 + "px";
+        document.body.appendChild(main_canvas);
+        var main_canvas_labels = document.createElement('div');
+        main_canvas_labels.style.float = 'left';
+        main_canvas_labels.style.borderTop = '1px solid white';
+        main_canvas_labels.style.borderBottom = '1px solid white';
+        main_canvas_labels.style.width = 20 + "px";
+        main_canvas.appendChild(main_canvas_labels);
+        for (var i = 0; i < 7; i++) {
+            // console.log("inside label");
+            var label_value = document.createElement('div');
+            // label_value.classList.add("label_value");
+            label_value.style.fontSize = 10 + "px";
+            label_value.innerHTML = label_height_value;
+            // label_value.clientTop = label_height + "px";
+            label_value.style.marginTop = 40 + "px";
+
+            label_value.style.textAlign = 'right';
+            // label_value.style.float = 'left';
+            // label_value.style.marginTop = 25 + "px";
+            label_height += 45;
+            label_height_value -= 50;
+            main_canvas_labels.appendChild(label_value);
+        }
+        canvas = document.createElement('canvas');
+
+        // canvas.style.marginLeft = 1 + "%";
+        // seg_canvas.style.width = 800 + "px";
+        // seg_canvas.style.height = 400 + "px";
+        canvas.style.float = 'left';
+        canvas.style.border = '1px solid blue';
+        // canvas.style.marginTop = 25 + "px";
+        // canvas.appendChild(seg_canvas);
+        main_canvas.appendChild(canvas);
+
         canvasContext = canvas.getContext('2d');
 
         // Set the dimensions
-        width = canvas.offsetWidth;
-        height = canvas.offsetHeight;
+        width = 800;
+        height = 400;
         halfHeight = height / 2;
 
         // Set the size of the canvas context to the size of the canvas element
@@ -135,7 +175,7 @@ this.record_audio = function(a) {
         navigator.mediaDevices.getUserMedia({
             audio: {
                 sampleSize: 16,
-                sampleRate: 16000,
+                // sampleRate: 16000,
                 channelCount: 1,
                 echoCancellation: false,
                 noiseSuppression: true,
@@ -163,7 +203,7 @@ this.record_audio = function(a) {
 
             // console.log(mediaRecorder);
             analyser.smoothingTimeConstant = 0.8;
-            analyser.fftSize = 1024;
+            analyser.fftSize = 2048;
 
             // Connect the audio nodes
             // filter.connect(analyser);
@@ -185,18 +225,18 @@ this.record_audio = function(a) {
                 const audioBlob = new Blob(audioChunks);
                 // array = audioChunks;
                 // const audioBlob = new Blob(frequency_array);
-                let fileReader = new FileReader();
+                // let fileReader = new FileReader();
 
-                fileReader.readAsArrayBuffer(audioBlob);
+                // fileReader.readAsArrayBuffer(audioBlob);
 
-                fileReader.onload = function(event) {
-                    let arrayBuffer = fileReader.result;
-                    // console.log(arrayBuffer.getChannelData(0));
-                    original_sound = new Int8Array(arrayBuffer);
-                    // console.log("original_sound >>", original_sound);
-                    // scriptProcessor.onaudioprocess = processInput;
-                    // console.log(audioBlob);
-                };
+                // fileReader.onload = function(event) {
+                //     let arrayBuffer = fileReader.result;
+                //     // console.log(arrayBuffer.getChannelData(0));
+                //     original_sound = new Int8Array(arrayBuffer);
+                //     // console.log("original_sound >>", original_sound);
+                //     // scriptProcessor.onaudioprocess = processInput;
+                //     // console.log(audioBlob);
+                // };
                 const audioUrl = URL.createObjectURL(audioBlob);
                 play = new Audio(audioUrl);
                 // console.log("play>>", play);
@@ -210,24 +250,7 @@ this.record_audio = function(a) {
                 analyser.disconnect(scriptProcessor);
                 scriptProcessor.disconnect(audioContext.destination);
                 microphone_flag = 2;
-                // const audioBlob = new Blob(audioChunks);
-                // // console.log(audioChunks);
-                // // console.log(audioBlob);
-                // const audioUrl = URL.createObjectURL(audioBlob);
-                // play = new Audio(audioUrl);
-                // let fileReader = new FileReader();
 
-                // fileReader.readAsArrayBuffer(audioBlob);
-
-                // fileReader.onload = function(event) {
-                //     let arrayBuffer = fileReader.result;
-                //     // console.log(arrayBuffer.getChannelData(0));
-                //     array = new Int8Array(arrayBuffer);
-                //     // console.log(array);
-
-                //     // mediaDevices.MediaStreamTrack.stop();
-                //     // return ({ array, play });
-                // };
             });
 
 
@@ -263,18 +286,6 @@ this.record_audio = function(a) {
 this.play_audio = function(audio_play) {
 
     audio_play.play();
-
-
-    // const audioBlob = new Blob([frequency_array], { type: 'application/octet-stream' });
-    // // console.log(audioBlob);
-    // const audioUrl = URL.createObjectURL(audioBlob);
-    // var play_audios = new Audio(audioUrl);
-    // // console.log(play_audios);
-    // // console.log(this.play);
-    // play_audios.play();
-
-
-
 }
 
 // //The intensity of a wave is proportional to the square of its amplitude
@@ -353,14 +364,7 @@ this.segment_audio = function(passed_array) {
             }(seg_count, seg_value, this));
 
 
-            // seg_play_button.addEventListener("click", function(event) {
-            //     console.log("seg coutn>>", seg_count);
-            //     // playByteArray(seg_value);
-            // }.bind(seg_count, seg_value, this));
 
-
-            // });
-            // }
         }
     }
     var seg_position = [];
@@ -382,7 +386,7 @@ this.segment_audio = function(passed_array) {
 
     threshold = (threshold_values / threshold_values_count) / 2;
 
-    // console.log("threshold value>>", threshold);
+    console.log("threshold value>>", threshold);
     for (var i = 0; i < (bars.length - 1); i++) {
         if ((bars[i + 1] - bars[i]) > threshold) {
             seg_position.push(i);
@@ -391,7 +395,7 @@ this.segment_audio = function(passed_array) {
             seg_position.push(i + 1);
         }
     }
-    // console.log("segment positions>>", seg_position);
+    console.log("segment positions>>", seg_position);
     // console.log("frequency values>>", frequency_values[0][0]);
     // console.log("segment positions>>", seg_position.length - 1);
     var prev_position = seg_position[0];
@@ -425,16 +429,17 @@ this.segment_audio = function(passed_array) {
             // }
 
         }
-        // console.log(seg_parts);
+        console.log("seg parts >>", seg_parts);
         seg.push(seg_parts);
         seg_parts = [];
         prev_position = seg_position[i];
     }
-    // console.log("seg>>", seg);
+    console.log("seg>>", seg);
     // console.log("seg type>>", typeof(seg[0]));
     // segmented_arrays = seg;
     for (var i = 0; i < seg.length; i++) {
         // console.log("seg length>>", seg.length);
+        // segmented_arrays.push(seg[i]);
         const audioBlob = new Blob(seg[i]);
         // // array = audioChunks;
         // // const audioBlob = new Blob(frequency_array);
@@ -460,21 +465,44 @@ var context; // Audio context
 var buf; // Audio buffer
 
 
-
 function playByteArray(byteArray) {
 
-    console.log("byteArray", byteArray);
+    console.log("byteArray>>", byteArray);
+    console.log("byteArray type>>", byteArray.length);
+    // var audioContext = new AudioContext();
 
-    var audioContext = new AudioContext();
+    // const audio = new Audio();
 
-    var buffer = audioContext.createBuffer(1, byteArray.length, 4000);
+    // var blob = new Blob([byteArray], { type: 'audio/mp3' });
+    // var url = window.URL.createObjectURL(blob);
+    // audio.src = url;
+    // audio.play();
+
+
+
+    // var blob = new Blob([byteArray], { type: 'audio/mp3' });
+    // var WAV = new Audio("data:Audio/WAV;base64," + btoa(byteArray));
+    // WAV.setAttribute("controls", "controls");
+    // WAV.setAttribute("crossorigin", "anonymous");
+    // // WAV.src = window.URL.createObjectURL(blob);
+    // console.log("wav>>", WAV);
+    // document.body.appendChild(WAV);
+
+    // WAV.play();
+
+
+    var buffer = audioContext.createBuffer(1, byteArray.length, 22000);
+    console.log("buffer>>", buffer);
     var buf = buffer.getChannelData(0);
     for (i = 0; i < byteArray.length; ++i) {
         buf[i] = byteArray[i];
     }
 
     var source = audioContext.createBufferSource();
+    console.log("buffer>>", buffer);
     source.buffer = buffer;
+    // source.loop = true;
     source.connect(audioContext.destination);
+    console.log("source>>", source);
     source.start(0);
 }

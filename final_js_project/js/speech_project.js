@@ -14,16 +14,16 @@ var label_height = 45;
 var label_height_value = 150
 var segmenting_div = document.getElementById("segmenting");
 
-for (var i = 0; i < 7; i++) {
-    // console.log("inside label");
-    var label_value = document.createElement('div');
-    label_value.classList.add("label_value");
-    label_value.innerHTML = label_height_value;
-    label_value.clientTop = label_height;
-    label_height += 45;
-    label_height_value -= 50;
-    labels.appendChild(label_value);
-}
+// for (var i = 0; i < 7; i++) {
+//     // console.log("inside label");
+//     var label_value = document.createElement('div');
+//     label_value.classList.add("label_value");
+//     label_value.innerHTML = label_height_value;
+//     label_value.clientTop = label_height;
+//     label_height += 45;
+//     label_height_value -= 50;
+//     labels.appendChild(label_value);
+// }
 
 
 
@@ -69,8 +69,8 @@ play_sound.addEventListener("click", function(event) {
 
 // play_sound1.addEventListener("click", function(event) {
 //     if (microphone_flag == 2) {
-//         console.log("segmented_array value>>", segmented_arrays[0]);
-//         playByteArray(segmented_arrays[0]);
+//         // console.log("segmented_array value>>", segmented_arrays[0]);
+//         playByteArray(array);
 //         // play.play();
 
 //     }
